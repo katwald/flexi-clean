@@ -1,0 +1,71 @@
+{
+    "bookings": [
+      {
+        "id": "47145",
+        "venueName": "RL1",
+        "bookingStatus":{
+            "booking Start": "Wed Sep 06 2023 18:14:44 GMT+0300 (Eastern European Summer Time)",
+            "bookingEnd": "Wed Sep 06 2023 18:14:44 GMT+0300 (Eastern European Summer Time)",
+            "BookingDescriptions": "Here comes booking details ",
+            "cleaningDate": "Thursday Sep 06 2023 18:14:44 GMT+0300 (Eastern European Summer Time)"
+        },
+        "cleaningStatus": {
+            "cleanedDate":"",
+            "assignedCleaner": "Jane Doe",
+           "cleaningStatus":"unknown",
+           "cleaningHour": 5
+
+        },
+        "additionalInfo":{
+            "lostAndFound":" here comes lost and found items description",
+            "needFixing": "here comes details of the items that needs fixing ",
+            "inventoryList":[{"item1": 5, "item2":7}]
+        }
+      },
+      {
+        "id": "47145",
+        "venueName": "RL1",
+        "bookingStatus":{
+            "booking Start": "Wed Sep 06 2023 18:14:44 GMT+0300 (Eastern European Summer Time)",
+            "bookingEnd": "Wed Sep 06 2023 18:14:44 GMT+0300 (Eastern European Summer Time)",
+            "BookingDescriptions": "Here comes booking details ",
+            "cleaningDate": "Thursday Sep 06 2023 18:14:44 GMT+0300 (Eastern European Summer Time)"
+        },
+        "cleaningStatus": {
+            "cleanedDate":"",
+            "assignedCleaner": "Jane Doe",
+           "cleaningStatus":"unknown",
+           "cleaningHour": 5
+
+        },
+        "additionalInfo":{
+            "lostAndFound":" here comes lost and found items description",
+            "needFixing": "here comes details of the items that needs fixing ",
+            "inventoryList":[{"item1": 5, "item2":7}]
+        }
+      },
+      {
+        "id": "47145",
+        "venueName": "RL1",
+        "bookingStatus":{
+            "booking Start": "Wed Sep 06 2023 18:14:44 GMT+0300 (Eastern European Summer Time)",
+            "bookingEnd": "Wed Sep 06 2023 18:14:44 GMT+0300 (Eastern European Summer Time)",
+            "BookingDescriptions": "Here comes booking details ",
+            "cleaningDate": "Thursday Sep 06 2023 18:14:44 GMT+0300 (Eastern European Summer Time)"
+        },
+        "cleaningStatus": {
+            "cleanedDate":"",
+            "assignedCleaner": "Jane Doe",
+           "cleaningStatus":"unknown",
+           "cleaningHour": 5
+
+        },
+        "additionalInfo":{
+            "lostAndFound":" here comes lost and found items description",
+            "needFixing": "here comes details of the items that needs fixing ",
+            "inventoryList":[{"item1": 5, "item2":7}]
+        }
+      }
+    ]
+
+  }
