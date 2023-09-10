@@ -1,49 +1,50 @@
 {
-    "bookings": [
-      {
-        "id": "4715",
-        "venueName": "Venue1",
-        "bookingStatus":{
-            "bookingStart": "Wed Sep 06 2023 17:00 ",
-            "bookingEnd": "Wed Sep 06 2023 18:00  ",
-            "BookingDescriptions": "Here comes booking details ",
-            "cleaningDate": "Thursday Sep 06 2023 18:14:44 GMT+0300 (Eastern European Summer Time)"
-        },
-        "cleaningStatus": {
-            "cleanedDate":"",
-            "assignedCleaner": "Jane Doe",
-           "cleaningStatus":"unknown",
-           "cleaningHour": 5
-
-        },
-        "additionalInfo":{
-            "lostAndFound":" here comes lost and found items description",
-            "needFixing": "here comes details of the items that needs fixing ",
-            "inventoryList":[{"item1": 5, "item2":7}]
-        }
-      },
-      {
-        "id": "47145",
-        "venueName": "Venue2",
-        "bookingStatus":{
+  "bookings": [
+    {
+      "id": 4714444,
+      "venueName": "Venue1",
+      "bookingStatus": {
         "bookingStart": "Wed Sep 06 2023 17:00 ",
         "bookingEnd": "Wed Sep 06 2023 18:00  ",
-        "BookingDescription": "Here comes booking details ",
-            "cleaningDate": "Thursday Sep 06 2023 18:14:44 GMT+0300 (Eastern European Summer Time)"
-        },
-        "cleaningStatus": {
-            "cleanedDate":"",
-            "assignedCleaner": "Jane Doe",
-           "cleaningStatus":"unknown",
-           "cleaningHour": 5
-
-        },
-        "additionalInfo":{
-            "lostAndFound":" here comes lost and found items description",
-            "needFixing": "here comes details of the items that needs fixing ",
-            "inventoryList":[{"item1": 5, "item2":7}]
-        }
+        "bookingDescription": "Here comes booking details ",
+        "cleaningDate": "Thursday Sep 06 2023 18:14:44 GMT+0300 (Eastern European Summer Time)"
+      },
+      "cleaningStatus": {
+        "cleanedDate": "",
+        "assignedCleaner": "Jane Doe",
+        "cleaningStatus": "unknown",
+        "cleaningHour": 5
+      },
+      "additionalInfo": {
+        "lostAndFound": " here comes lost and found items description",
+        "needFixing": "here comes details of the items that needs fixing ",
+        "inventoryList": [
+          {
+            "item1": 5,
+            "item2": 7
+          }
+        ]
       }
-    ]
-
-  }
+    },
+    {
+      "venueName": "Venue 2",
+      "bookingStatus": {
+        "bookingStart": "2023-09-11T04:30",
+        "bookingEnd": "2023-09-11T00:42",
+        "bookingDescription": "extra towels need 5"
+      },
+      "cleaningStatus": {
+        "cleanedDate": "",
+        "assignedCleaner": "",
+        "cleaningStatus": "",
+        "cleaningHour": 0
+      },
+      "additionalInfo": {
+        "lostAndFound": "",
+        "needFixing": "",
+        "inventoryList": []
+      },
+      "id": 4714445
+    }
+  ]
+}

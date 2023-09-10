@@ -10,8 +10,6 @@ Cleaner
 - can assign shift to themselves if that fits to their schedule.
 - can cancel the shift before 48 hours ( in exceptional case such as sick, supervisor can cancel the shift )
 - can comment cleaning related issue, by selecting specific tag. for example if cleaning chemical finishes user selects INVENTORY TAG and add description of it. In case of lost and found they can select specific tag and add description.
-- can punch in and out to notify hours and making sure that cleaning has done.
-- can change their status (available, not available duration, in vacation ) that helps supervisor to plan accordingly.
 
 SuperVisor
 

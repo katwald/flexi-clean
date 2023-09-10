@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+
+import { createBooking } from "../../reducers/bookingsReducers";
 
 const BookingForm = () => {
+  const dispatch = useDispatch();
   const [venue, setVenue] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
@@ -9,7 +13,17 @@ const BookingForm = () => {
 
   const handleAddBooking = (e) => {
     e.preventDefault();
-    console.log("venue", venue, startDate, endDate, description, cleaningDate);
+    const bookingObject = {
+      venueName: venue,
+      bookingStatus: {
+        bookingStart: startDate,
+        bookingEnd: endDate,
+        bookingDescription: description,
+        cleaningDate: cleaningDate,
+      },
+    };
+
+    dispatch(createBooking(bookingObject));
   };
   return (
     <form onSubmit={handleAddBooking}>
@@ -36,7 +50,7 @@ const BookingForm = () => {
       <div>Description</div>
       <textarea
         name="description"
-        value={endDate}
+        value={description}
         rows="4"
         cols="30"
         type="text"

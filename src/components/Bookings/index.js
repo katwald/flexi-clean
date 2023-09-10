@@ -7,17 +7,18 @@ const Bookings = () => {
   const renderBookings =
     bookings &&
     bookings.map((b) => {
-      console.log("b.venueName", b);
+      const { bookingStart, bookingEnd, bookingDescription } = b.bookingStatus;
+
       return (
-        <div key={b.id}>
+        <div key={Number(b.id)}>
           <h4>{b.venueName}</h4>
-          <p> booking start: {b.bookingStatus.bookingStart}</p>
-          <p>booking End: {b.bookingStatus.bookingEnd}</p>
-          <p>{b.bookingStatus.bookingDescription}</p>
+          <p> booking start: {bookingStart}</p>
+          <p>booking End: {bookingEnd}</p>
+          <p>{bookingDescription}</p>
         </div>
       );
     });
-  return <>{renderBookings}</>;
+  return <div>{renderBookings}</div>;
 };
 
 export default Bookings;
