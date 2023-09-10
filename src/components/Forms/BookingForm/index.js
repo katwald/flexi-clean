@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { createBooking } from "../../reducers/bookingsReducers";
+import { createBooking } from "../../../reducers/bookingsReducers";
 
 const BookingForm = () => {
   const dispatch = useDispatch();

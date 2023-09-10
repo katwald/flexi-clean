@@ -70,7 +70,6 @@ export const createBooking = (bookingObject) => {
   };
   return async (dispatch) => {
     const response = await bookingServices.createNew(obj);
-    console.log("first", response);
     dispatch(appendBooking(response));
   };
 };

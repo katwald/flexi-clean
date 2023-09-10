@@ -45,6 +45,37 @@
         "inventoryList": []
       },
       "id": 4714445
+    },
+    {
+      "venueName": "asd",
+      "bookingStatus": {
+        "bookingStart": "",
+        "bookingEnd": "",
+        "bookingDescription": "dsf"
+      },
+      "cleaningStatus": {
+        "cleanedDate": "",
+        "assignedCleaner": "",
+        "cleaningStatus": "",
+        "cleaningHour": 0
+      },
+      "additionalInfo": {
+        "lostAndFound": "",
+        "needFixing": "",
+        "inventoryList": []
+      },
+      "id": 4714446
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "email": "janeDoe@gmail.com",
+      "contact": "0451044544",
+      "userType": "superVisor"
+
     }
   ]
 }

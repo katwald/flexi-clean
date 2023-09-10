@@ -15,12 +15,19 @@ const Navigation = () => {
       <Link to="/create-bookings" style={style}>
         create bookings
       </Link>
+      <Link to="/worker" style={style}>
+        worker
+      </Link>
+      {/* these link will be modified for user view.
+       <Link to="/" style={style}>
+        Home
+      </Link>
       <Link to="/my-schedules" style={style}>
         My schedules
       </Link>
-      <Link to="/info" style={style}>
-        info
-      </Link>
+      <Link to="/my-schedules" style={style}>
+        My schedules
+      </Link> */}
     </div>
   );
 };
