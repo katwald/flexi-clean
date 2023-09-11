@@ -8,7 +8,6 @@ const getAll = async () => {
 };
 
 const createNew = async (content) => {
-  console.log("object in services", content);
   const response = await axios.post(baseUrl, content);
   return response.data;
 };
@@ -19,7 +18,7 @@ const update = async (id, newObject) => {
 };
 
 const remove = async (id) => {
-  return await axios.delete(baseUrl, id);
+  return await axios.delete(`${baseUrl}/${id}`);
 };
 
 export default { getAll, createNew, update, remove };

@@ -40,10 +40,16 @@ const bookingSlice = createSlice({
       );
       return updatedBooking;
     },
+    deleteBooking(state, action) {
+      const removedbookings = state.filter(
+        (booking) => booking.id !== action.payload
+      );
+      return removedbookings;
+    },
   },
 });
 
-export const { setBookings, appendBooking, modifyBooking } =
+export const { setBookings, appendBooking, modifyBooking, deleteBooking } =
   bookingSlice.actions;
 
 export const initializeBookings = () => {
@@ -84,6 +90,12 @@ export const updateBooking = (bookingId, updatedObj) => {
   return async (dispatch) => {
     const response = await bookingServices.update(bookingId, updatedObj);
     dispatch(modifyBooking(response));
+  };
+};
+export const removeBooking = (bookingId) => {
+  return async (dispatch) => {
+    await bookingServices.remove(bookingId);
+    dispatch(deleteBooking(bookingId));
   };
 };
 

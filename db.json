@@ -4,9 +4,9 @@
       "id": 4714444,
       "venueName": "Venue1",
       "bookingStatus": {
-        "bookingStart": "Wed Sep 06 2023 17:00 ",
-        "bookingEnd": "Wed Sep 06 2023 18:00  ",
-        "bookingDescription": "Here comes booking details ",
+        "bookingStart": "2023-09-12T23:05",
+        "bookingEnd": "2023-09-06T23:05",
+        "bookingDescription": "Here comes booking details ss",
         "cleaningDate": "Thursday Sep 06 2023 18:14:44 GMT+0300 (Eastern European Summer Time)"
       },
       "cleaningStatus": {
@@ -27,7 +27,7 @@
       }
     },
     {
-      "venueName": "Venue 2",
+      "venueName": "Venue 233",
       "bookingStatus": {
         "bookingStart": "2023-09-11T04:30",
         "bookingEnd": "2023-09-11T00:42",
@@ -35,7 +35,7 @@
       },
       "cleaningStatus": {
         "cleanedDate": "",
-        "assignedCleaner": "",
+        "assignedCleaner": "Jane Doe",
         "cleaningStatus": "",
         "cleaningHour": 0
       },
@@ -45,26 +45,6 @@
         "inventoryList": []
       },
       "id": 4714445
-    },
-    {
-      "venueName": "asd",
-      "bookingStatus": {
-        "bookingStart": "",
-        "bookingEnd": "",
-        "bookingDescription": "dsf"
-      },
-      "cleaningStatus": {
-        "cleanedDate": "",
-        "assignedCleaner": "",
-        "cleaningStatus": "",
-        "cleaningHour": 0
-      },
-      "additionalInfo": {
-        "lostAndFound": "",
-        "needFixing": "",
-        "inventoryList": []
-      },
-      "id": 4714446
     }
   ],
   "employees": [
@@ -75,7 +55,14 @@
       "email": "janeDoe@gmail.com",
       "contact": "0451044544",
       "userType": "superVisor"
-
+    },
+    {
+      "firstName": "Diwas",
+      "lastName": "Katwal",
+      "email": "diwas@gmail.com",
+      "contact": "045100344",
+      "userType": "worker",
+      "id": 2
     }
   ]
 }

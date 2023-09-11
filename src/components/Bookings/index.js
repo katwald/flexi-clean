@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { updateBooking } from "../../reducers/bookingsReducers";
+import { updateBooking, removeBooking } from "../../reducers/bookingsReducers";
 
 import Modal from "../Modal";
 import EditBookingForm from "../Forms/BookingForm/EditBookingForm";
@@ -34,7 +34,10 @@ const Bookings = () => {
     setbookingDescription(bookingDescription);
     setVenue(booking.venueName);
     setCleaningDate(cleaningDate);
-    console.log("bookinggggg", booking);
+  };
+  const handleDeleteBooking = (bookingId) => {
+    console.log("bbbid", bookingId);
+    dispatch(removeBooking(bookingId));
   };
   const dispatchAssignedWorker = (employee) => {
     const updatedBookingObj = {
@@ -63,19 +66,19 @@ const Bookings = () => {
             }}
           >
             <div>
-              <h4>
-                {b.venueName}{" "}
-                <span>
-                  {" "}
-                  <button onClick={() => handleEditBooking(b)}>
-                    edit booking
-                  </button>
-                </span>
-              </h4>
+              <h4>{b.venueName} </h4>
               <p> booking start: {bookingStart}</p>
               <p>booking End: {bookingEnd}</p>
               <p>{bookingDescription}</p>
-              <button>delete booking</button>
+              <span>
+                {" "}
+                <button onClick={() => handleEditBooking(b)}>
+                  edit booking
+                </button>
+                <button onClick={() => handleDeleteBooking(b.id)}>
+                  delete booking
+                </button>
+              </span>
             </div>
             <div style={{ display: "flex", alignItems: "center" }}>
               <p>{assignedCleaner}</p>
