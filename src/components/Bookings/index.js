@@ -1,19 +1,40 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+
+import { updateBooking } from "../../reducers/bookingsReducers";
+
 import Modal from "../Modal";
-
-import { assignWorker } from "../../reducers/bookingsReducers";
-
+import EditBookingForm from "../Forms/BookingForm/EditBookingForm";
 const Bookings = () => {
   const dispatch = useDispatch();
   const bookings = useSelector((state) => state.bookings);
   const employees = useSelector((state) => state.employees);
-  const [showModal, setShowModal] = useState(false);
+  const [workerModal, setWorkerModal] = useState(false);
+  const [editBookingModal, setEditBookingModal] = useState(false);
   const [booking, setBooking] = useState(null);
+  //edit booking form values
+  const [bookingStart, setBookingStart] = useState("");
+  const [bookingEnd, setBookingEnd] = useState("");
+  const [bookingDescription, setbookingDescription] = useState("");
+  const [venue, setVenue] = useState("");
+  const [cleaningDate, setCleaningDate] = useState("");
 
   const handleClickAssign = (booking) => {
     setBooking(booking);
-    setShowModal(true);
+    setWorkerModal(!workerModal);
+  };
+
+  const handleEditBooking = (booking) => {
+    const { bookingStart, bookingEnd, bookingDescription, cleaningDate } =
+      booking.bookingStatus;
+    setBooking(booking);
+    setEditBookingModal(!editBookingModal);
+    setBookingStart(bookingStart);
+    setBookingEnd(bookingEnd);
+    setbookingDescription(bookingDescription);
+    setVenue(booking.venueName);
+    setCleaningDate(cleaningDate);
+    console.log("bookinggggg", booking);
   };
   const dispatchAssignedWorker = (employee) => {
     const updatedBookingObj = {
@@ -23,8 +44,9 @@ const Bookings = () => {
         assignedCleaner: `${employee.firstName} ${employee.lastName}`,
       },
     };
-    dispatch(assignWorker(booking.id, updatedBookingObj));
+    dispatch(updateBooking(booking.id, updatedBookingObj));
   };
+
   const renderBookings =
     bookings &&
     bookings.map((b) => {
@@ -41,10 +63,19 @@ const Bookings = () => {
             }}
           >
             <div>
-              <h4>{b.venueName}</h4>
+              <h4>
+                {b.venueName}{" "}
+                <span>
+                  {" "}
+                  <button onClick={() => handleEditBooking(b)}>
+                    edit booking
+                  </button>
+                </span>
+              </h4>
               <p> booking start: {bookingStart}</p>
               <p>booking End: {bookingEnd}</p>
               <p>{bookingDescription}</p>
+              <button>delete booking</button>
             </div>
             <div style={{ display: "flex", alignItems: "center" }}>
               <p>{assignedCleaner}</p>
@@ -84,8 +115,20 @@ const Bookings = () => {
     <div style={{ padding: 20, position: "relative", height: "100vh" }}>
       <hr />
       {renderBookings}
-      {showModal && (
-        <Modal setShowModal={setShowModal}>{renderEmployees()}</Modal>
+      {workerModal && (
+        <Modal setShowModal={setWorkerModal}>{renderEmployees()}</Modal>
+      )}
+      {editBookingModal && (
+        <Modal setShowModal={setEditBookingModal}>
+          <EditBookingForm
+            _booking={booking}
+            _venue={venue}
+            _startDate={bookingStart}
+            _endDate={bookingEnd}
+            _description={bookingDescription}
+            _cleaningDate={cleaningDate}
+          />
+        </Modal>
       )}
     </div>
   );

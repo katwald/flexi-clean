@@ -34,7 +34,7 @@ const bookingSlice = createSlice({
     appendBooking(state, action) {
       state.push(action.payload);
     },
-    updateBooking(state, action) {
+    modifyBooking(state, action) {
       const updatedBooking = state.map((s) =>
         s.id === action.payload.id ? action.payload : s
       );
@@ -43,7 +43,7 @@ const bookingSlice = createSlice({
   },
 });
 
-export const { setBookings, appendBooking, updateBooking } =
+export const { setBookings, appendBooking, modifyBooking } =
   bookingSlice.actions;
 
 export const initializeBookings = () => {
@@ -80,10 +80,10 @@ export const createBooking = (bookingObject) => {
     dispatch(appendBooking(response));
   };
 };
-export const assignWorker = (bookingId, updatedObj) => {
+export const updateBooking = (bookingId, updatedObj) => {
   return async (dispatch) => {
     const response = await bookingServices.update(bookingId, updatedObj);
-    dispatch(updateBooking(response));
+    dispatch(modifyBooking(response));
   };
 };
 

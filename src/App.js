@@ -9,7 +9,7 @@ import Navigation from "./components/Navigation";
 import MySchedule from "./components/MySchedule";
 import EmployeesList from "./components/EmployeesList";
 import Bookings from "./components/Bookings";
-import BookingForm from "./components/Forms/BookingForm";
+import BookingForm from "./components/Forms/BookingForm/NewbookingForm";
 
 const App = () => {
   const dispatch = useDispatch();
