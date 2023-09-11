@@ -36,7 +36,6 @@ const Bookings = () => {
     setCleaningDate(cleaningDate);
   };
   const handleDeleteBooking = (bookingId) => {
-    console.log("bbbid", bookingId);
     dispatch(removeBooking(bookingId));
   };
   const dispatchAssignedWorker = (employee) => {
@@ -45,6 +44,16 @@ const Bookings = () => {
       cleaningStatus: {
         ...booking.cleaningStatus,
         assignedCleaner: `${employee.firstName} ${employee.lastName}`,
+      },
+    };
+    dispatch(updateBooking(booking.id, updatedBookingObj));
+  };
+  const handleRemoveAssignedEmployee = (booking) => {
+    const updatedBookingObj = {
+      ...booking,
+      cleaningStatus: {
+        ...booking.cleaningStatus,
+        assignedCleaner: "",
       },
     };
     dispatch(updateBooking(booking.id, updatedBookingObj));
@@ -81,12 +90,17 @@ const Bookings = () => {
               </span>
             </div>
             <div style={{ display: "flex", alignItems: "center" }}>
-              <p>{assignedCleaner}</p>
-              {/* {assignedCleaner && (
-                <button onChange={handleEditSchedule} style={{ height: 32 }}>
-                  edit
-                </button>
-              )} */}
+              {assignedCleaner && (
+                <>
+                  <p>{assignedCleaner}</p>
+                  <button
+                    onClick={() => handleRemoveAssignedEmployee(b)}
+                    style={{ height: 32 }}
+                  >
+                    cancel
+                  </button>
+                </>
+              )}
               {!assignedCleaner && (
                 <button
                   onClick={() => handleClickAssign(b)}

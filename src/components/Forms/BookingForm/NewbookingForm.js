@@ -24,6 +24,12 @@ const BookingForm = () => {
     };
 
     dispatch(createBooking(bookingObject));
+    setCleaningDate("");
+    setVenue("");
+    setStartDate("");
+    setEndDate("");
+    setDescription("");
+    setCleaningDate("");
   };
   return (
     <form onSubmit={handleAddBooking}>
