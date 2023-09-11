@@ -1,13 +1,29 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import Modal from "../Modal";
+
+import { assignWorker } from "../../reducers/bookingsReducers";
 
 const Bookings = () => {
+  const dispatch = useDispatch();
   const bookings = useSelector((state) => state.bookings);
-  // this will replace by authentication.
-  const userIsSuperVisor = true;
+  const employees = useSelector((state) => state.employees);
+  const [showModal, setShowModal] = useState(false);
+  const [booking, setBooking] = useState(null);
 
-  const handleCancelSchedule = () => {
-    // dispatch update booking action here.
+  const handleClickAssign = (booking) => {
+    setBooking(booking);
+    setShowModal(true);
+  };
+  const dispatchAssignedWorker = (employee) => {
+    const updatedBookingObj = {
+      ...booking,
+      cleaningStatus: {
+        ...booking.cleaningStatus,
+        assignedCleaner: `${employee.firstName} ${employee.lastName}`,
+      },
+    };
+    dispatch(assignWorker(booking.id, updatedBookingObj));
   };
   const renderBookings =
     bookings &&
@@ -25,21 +41,24 @@ const Bookings = () => {
             }}
           >
             <div>
-              2<h4>{b.venueName}</h4>
+              <h4>{b.venueName}</h4>
               <p> booking start: {bookingStart}</p>
               <p>booking End: {bookingEnd}</p>
               <p>{bookingDescription}</p>
             </div>
             <div style={{ display: "flex", alignItems: "center" }}>
               <p>{assignedCleaner}</p>
-              {assignedCleaner && (
-                <button onChange={handleCancelSchedule} style={{ height: 32 }}>
-                  cancel schedule
+              {/* {assignedCleaner && (
+                <button onChange={handleEditSchedule} style={{ height: 32 }}>
+                  edit
                 </button>
-              )}
+              )} */}
               {!assignedCleaner && (
-                <button style={{ height: 32 }}>
-                  {userIsSuperVisor ? "Asign worker" : "Assign to me"}
+                <button
+                  onClick={() => handleClickAssign(b)}
+                  style={{ height: 32 }}
+                >
+                  Assign worker
                 </button>
               )}
             </div>
@@ -48,10 +67,26 @@ const Bookings = () => {
         </div>
       );
     });
+
+  const renderEmployees = () =>
+    employees &&
+    employees.map((employee) => (
+      <li key={Number(employee.id)}>
+        {`${employee.firstName}  ${employee.lastName}`}{" "}
+        <span>
+          <button onClick={() => dispatchAssignedWorker(employee)}>
+            Assign
+          </button>
+        </span>
+      </li>
+    ));
   return (
-    <div style={{ padding: 20 }}>
+    <div style={{ padding: 20, position: "relative", height: "100vh" }}>
       <hr />
       {renderBookings}
+      {showModal && (
+        <Modal setShowModal={setShowModal}>{renderEmployees()}</Modal>
+      )}
     </div>
   );
 };
