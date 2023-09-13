@@ -11,7 +11,7 @@
       },
       "cleaningStatus": {
         "cleanedDate": "",
-        "assignedCleaner": "Jane Doe",
+        "assignedCleaner": "",
         "cleaningStatus": "unknown",
         "cleaningHour": 5
       },
@@ -35,7 +35,7 @@
       },
       "cleaningStatus": {
         "cleanedDate": "",
-        "assignedCleaner": "Jane Doe",
+        "assignedCleaner": "",
         "cleaningStatus": "",
         "cleaningHour": 0
       },
@@ -45,46 +45,6 @@
         "inventoryList": []
       },
       "id": 4714445
-    },
-    {
-      "venueName": "Roba lounge 2",
-      "bookingStatus": {
-        "bookingStart": "2023-09-11T12:31",
-        "bookingEnd": "2023-09-12T12:31",
-        "bookingDescription": "asdfasdf"
-      },
-      "cleaningStatus": {
-        "cleanedDate": "",
-        "assignedCleaner": "",
-        "cleaningStatus": "",
-        "cleaningHour": 0
-      },
-      "additionalInfo": {
-        "lostAndFound": "",
-        "needFixing": "",
-        "inventoryList": []
-      },
-      "id": 4714446
-    },
-    {
-      "venueName": "Robalounge",
-      "bookingStatus": {
-        "bookingStart": "2023-09-13T23:35",
-        "bookingEnd": "2023-09-12T13:33",
-        "bookingDescription": "dasdfsdafasd"
-      },
-      "cleaningStatus": {
-        "cleanedDate": "",
-        "assignedCleaner": "",
-        "cleaningStatus": "",
-        "cleaningHour": 0
-      },
-      "additionalInfo": {
-        "lostAndFound": "",
-        "needFixing": "",
-        "inventoryList": []
-      },
-      "id": 4714447
     }
   ],
   "employees": [

@@ -33,24 +33,32 @@ const CreateEmployeeForm = () => {
       <form onSubmit={handleCreateUser}>
         <h4>Create new worker</h4>
         <div>
-          FirstName:
+          <div>
+            <label>FirstName:</label>
+          </div>
           <input {...firstName} />
         </div>
         <br />
         <div>
-          LastName:
+          <div>
+            <label>Last Name:</label>
+          </div>
           <input {...lastName} />
         </div>
         <br />
 
         <div>
-          Email:
+          <div>
+            <label>FirstName:</label>
+          </div>
           <input {...email} />
         </div>
         <br />
 
         <div>
-          contact
+          <div>
+            <label>FirstName:</label>
+          </div>
           <input {...contactNumber} />
         </div>
         <br />
