@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import useField from "../../../hooks/useField";
 import { createEmployees } from "../../../reducers/employeesReducer";
 
+import "./index.scss";
+
 const CreateEmployeeForm = () => {
   const dispatch = useDispatch();
 
@@ -20,16 +22,13 @@ const CreateEmployeeForm = () => {
       email: email.value,
     };
     dispatch(createEmployees(obj));
+    firstName.reset();
+    lastName.reset();
+    contactNumber.reset();
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        padding: 30,
-      }}
-    >
+    <div className="employee-form">
       <form onSubmit={handleCreateUser}>
         <h4>Create new worker</h4>
         <div>
@@ -49,7 +48,7 @@ const CreateEmployeeForm = () => {
 
         <div>
           <div>
-            <label>FirstName:</label>
+            <label>email:</label>
           </div>
           <input {...email} />
         </div>
@@ -57,7 +56,7 @@ const CreateEmployeeForm = () => {
 
         <div>
           <div>
-            <label>FirstName:</label>
+            <label>contact:</label>
           </div>
           <input {...contactNumber} />
         </div>

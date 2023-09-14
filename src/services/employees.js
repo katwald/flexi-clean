@@ -19,7 +19,7 @@ const update = async (id) => {
 };
 
 const remove = async (id) => {
-  return await axios.delete(baseUrl, id);
+  return await axios.delete(`${baseUrl}/${id}`);
 };
 
 export default { getAll, createNew, update, remove };
