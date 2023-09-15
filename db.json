@@ -2,12 +2,13 @@
   "bookings": [
     {
       "id": 4714444,
-      "venueName": "Venue1112",
+      "venueName": "Roba 1",
       "bookingStatus": {
         "bookingStart": "2023-09-12T23:05",
         "bookingEnd": "2023-09-06T23:05",
         "bookingDescription": "Here comes booking details ss",
-        "cleaningDate": "Thursday Sep 06 2023 18:14:44 GMT+0300 (Eastern European Summer Time)"
+        "cleaningDate": " 06 2023 18:14:44 ",
+        "cleaningTag":"Normal Cleaning"
       },
       "cleaningStatus": {
         "cleanedDate": "",
@@ -15,44 +16,16 @@
         "cleaningStatus": "unknown",
         "cleaningHour": 5
       },
-      "additionalInfo": {
-        "lostAndFound": " here comes lost and found items description",
-        "needFixing": "here comes details of the items that needs fixing ",
-        "inventoryList": [
-          {
-            "item1": 5,
-            "item2": 7
-          }
-        ]
-      },
       "comments": []
     },
     {
-      "venueName": "Venue 233",
+      "venueName": "Venue namew",
       "bookingStatus": {
-        "bookingStart": "2023-09-11T04:30",
-        "bookingEnd": "2023-09-11T00:42",
-        "bookingDescription": "extra towels need 5"
-      },
-      "cleaningStatus": {
-        "cleanedDate": "",
-        "assignedCleaner": "devendra katwal",
-        "cleaningStatus": "",
-        "cleaningHour": 0
-      },
-      "additionalInfo": {
-        "lostAndFound": "",
-        "needFixing": "",
-        "inventoryList": []
-      },
-      "id": 4714445
-    },
-    {
-      "venueName": "Robalounge",
-      "bookingStatus": {
-        "bookingStart": "2023-09-14T23:51",
-        "bookingEnd": "2023-09-14T22:51",
-        "bookingDescription": "5 extra toowls"
+        "bookingDescription": "this is special booking",
+        "bookingStart": "2023-09-15T07:25",
+        "bookingEnd": "2023-09-15T19:25",
+        "cleaningDate": "2023-09-16T07:25",
+        "cleaningTag":"Normal Cleaning"
       },
       "cleaningStatus": {
         "cleanedDate": "",
@@ -60,12 +33,8 @@
         "cleaningStatus": "",
         "cleaningHour": 0
       },
-      "additionalInfo": {
-        "lostAndFound": "",
-        "needFixing": "",
-        "inventoryList": []
-      },
-      "id": 4714446
+      "comments": [],
+      "id": 4714445
     }
   ],
   "employees": [
