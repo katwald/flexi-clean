@@ -21,8 +21,13 @@ const SingleBooking = ({ singleBooking }) => {
   const handleDeleteBooking = (bookingId) => {
     dispatch(removeBooking(bookingId));
   };
-  const { bookingStart, bookingEnd, bookingDescription, cleaningDate } =
-    singleBooking.bookingStatus;
+  const {
+    bookingStart,
+    bookingEnd,
+    bookingDescription,
+    cleaningDate,
+    cleaningTag,
+  } = singleBooking.bookingStatus;
   const { assignedCleaner } = singleBooking.cleaningStatus;
 
   const handleClickAssign = (booking) => {
@@ -115,16 +120,19 @@ const SingleBooking = ({ singleBooking }) => {
           </div>
 
           {editBookingModal && (
-            <Modal setShowModal={setEditBookingModal}>
-              <EditBookingForm
-                _booking={singleBooking}
-                _venue={singleBooking.venueName}
-                _startDate={bookingStart}
-                _endDate={bookingEnd}
-                _description={bookingDescription}
-                _cleaningDate={cleaningDate}
-              />
-            </Modal>
+            <div className="edit-form">
+              <Modal setShowModal={setEditBookingModal}>
+                <EditBookingForm
+                  _booking={singleBooking}
+                  _venue={singleBooking.venueName}
+                  _startDate={bookingStart}
+                  _endDate={bookingEnd}
+                  _description={bookingDescription}
+                  _cleaningDate={cleaningDate}
+                  _cleaningTag={cleaningTag}
+                />
+              </Modal>
+            </div>
           )}
           {workerModal && (
             <Modal setShowModal={setWorkerModal}>{renderEmployees()}</Modal>

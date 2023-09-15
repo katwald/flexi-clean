@@ -16,11 +16,7 @@ const initialState = [
       cleaningStatus: "",
       cleaningHour: 0,
     },
-    additionalInfo: {
-      lostAndFound: "",
-      needFixing: "",
-      inventoryList: [], // inventoryList: [{ item1: 5 }, { item2: 7 }],
-    },
+    comments: [],
   },
 ];
 
@@ -59,30 +55,24 @@ export const initializeBookings = () => {
   };
 };
 
-export const createBooking = (bookingObject) => {
-  const { venueName, bookingStatus } = bookingObject;
-  const obj = {
-    venueName: venueName,
+export const createBooking = (bookinObject) => {
+  console.log("initial object..", initialState, "booking obj", bookinObject);
+  const { bookingDescription, bookingStart, bookingEnd, cleaningDate } =
+    bookinObject.bookingStatus;
+  const newObj = {
+    ...initialState[0],
+    venueName: bookinObject.venueName,
     bookingStatus: {
-      bookingStart: bookingStatus.bookingStart,
-      bookingEnd: bookingStatus.bookingEnd,
-      bookingDescription: bookingStatus.bookingDescription,
-      cleaningDate: bookingStatus.cleanedDate,
-    },
-    cleaningStatus: {
-      cleanedDate: "",
-      assignedCleaner: "",
-      cleaningStatus: "",
-      cleaningHour: 0,
-    },
-    additionalInfo: {
-      lostAndFound: "",
-      needFixing: "",
-      inventoryList: [], // inventoryList: [{ item1: 5 }, { item2: 7 }],
+      ...initialState.bookingStatus,
+      bookingDescription: bookingDescription,
+      bookingStart: bookingStart,
+      bookingEnd: bookingEnd,
+      cleaningDate: cleaningDate,
     },
   };
+  console.log("and this is new: ", newObj);
   return async (dispatch) => {
-    const response = await bookingServices.createNew(obj);
+    const response = await bookingServices.createNew(newObj);
     dispatch(appendBooking(response));
   };
 };

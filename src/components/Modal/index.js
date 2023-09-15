@@ -11,7 +11,6 @@ const Modal = ({ children, setShowModal }) => {
           <button onClick={() => setShowModal(false)}>X</button>
         </div>
         <div className="modal-body">{children}</div>
-        <div className="modal-footer">Modal footer</div>
       </div>
     </div>
   );

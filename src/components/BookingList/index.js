@@ -12,7 +12,7 @@ const Bookings = () => {
   const renderBookings =
     bookings &&
     bookings.map((b) => {
-      const { bookingStart, bookingEnd } = b.bookingStatus;
+      const { bookingStart, bookingEnd, cleaningDate } = b.bookingStatus;
       const { assignedCleaner } = b.cleaningStatus;
       return (
         <tr
@@ -20,17 +20,16 @@ const Bookings = () => {
           onClick={() => handleRowClick(b.id)}
           className="booking-table-row"
         >
-          {/* <Link to={`/bookings/${b.id}`}> */}
-          <td data-label="VENUE NAME">{b.venueName}</td>
-          <td data-label="CHECKIN">{bookingStart}</td>
-          <td data-label="CHECKOUT">{bookingEnd}</td>
-          <td data-label="ASSIGNED WORKER">
+          <td data-label="Venue Name">{b.venueName}</td>
+          <td data-label="Check-In">{bookingStart}</td>
+          <td data-label="Checkout">{bookingEnd}</td>
+          <td data-label="Cleaning-Date">{cleaningDate}</td>
+          <td data-label="Assigned Worker">
             {" "}
             <div className="employee-info">
               {assignedCleaner ? <p>{assignedCleaner}</p> : <p>?</p>}
             </div>
           </td>
-          {/* </Link> */}
         </tr>
       );
     });
@@ -44,6 +43,7 @@ const Bookings = () => {
             <th scope="col">Venue Name</th>
             <th scope="col">Checkin</th>
             <th scope="col">Checkout</th>
+            <th scope="col">Cleaning Date</th>
             <th scope="col">Assigned Worker</th>
           </tr>
         </thead>
