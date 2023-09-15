@@ -4,8 +4,7 @@ import { Routes, Route, useMatch } from "react-router-dom";
 
 import { initializeBookings } from "./reducers/bookingsReducers";
 import { initializeEmployees } from "./reducers/employeesReducer";
-
-import Navigation from "./components/Navigation";
+import Navigation from "./components/Navbar";
 import MySchedule from "./components/MySchedule";
 import EmployeesList from "./components/EmployeesList";
 import Bookings from "./components/BookingList";
@@ -24,18 +23,12 @@ const App = () => {
   const bookings = useSelector((state) => state.bookings);
 
   const matchBooking = useMatch("/bookings/:id");
-  console.log(
-    "matchhh",
-    matchBooking && typeof matchBooking.params.id,
-    typeof bookings[0].id
-  );
 
   const singleBooking = matchBooking
     ? bookings.find((booking) => booking.id === Number(matchBooking.params.id))
     : null;
-  console.log("singleee", singleBooking);
   return (
-    <div>
+    <div className="container">
       <Navigation />
       <Routes>
         <Route path="/my-schedule" element={<MySchedule />} />

@@ -36,7 +36,7 @@ const Bookings = () => {
     });
 
   return (
-    <div style={{ padding: 20, position: "relative", height: "100vh" }}>
+    <div>
       <table>
         <caption>Booking Lists</caption>
         <thead>

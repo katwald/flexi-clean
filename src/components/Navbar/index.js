@@ -7,8 +7,8 @@ const Navigation = () => {
   const navList = [
     { label: "/", value: "Home" },
     { label: "/create-booking", value: "CreateBooking" },
-    { label: "/old-bookings", value: "Old Bookings" },
     { label: "/worker", value: "worker" },
+    // { label: "/old-bookings", value: "Old Bookings" }, TODO
   ];
   return (
     <div className="nav-bar">

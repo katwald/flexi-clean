@@ -1,0 +1,33 @@
+
+
+
+// theme colors
+$dark:rgb(46, 45, 45);
+$light:#fff;
+$primary:#107c6e;
+$secondary: #18c888;
+$error: #d32752;
+$info: #f6c31c;
+
+
+// spacing
+$spacing-md: 16px;
+$spacing-lg: 32px;
+
+// border radius
+$borderRadius: 12px;
+
+// box-shadow
+$base-box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+
+// font sizes
+$base-font-sizes: 1rem;
+
+@mixin breakpoint($point){
+    @if $point == md{
+        //768px
+        @media(min-width:48em){
+            @content
+        }
+    }
+}
