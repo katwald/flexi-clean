@@ -1,37 +1,41 @@
 import React from "react";
-import { twMerge } from "tailwind-merge";
-import className from "classnames";
+import classNames from "classnames";
+
+import "./index.scss";
 
 const Button = ({
-  children,
   primary,
   secondary,
-  success,
   warning,
-  danger,
   outline,
+  danger,
+  disabled,
   rounded,
+  small,
+  medium,
+  large,
+  icon,
+  children,
   ...rest
 }) => {
-  console.log("rest", rest.className);
-  const classes = twMerge(
-    className(rest.className, "flex items-center px-3 py-1.5 border", {
-      "border-blue-500 bg-blue-500 text-white": primary,
-      "border-gray-900 bg-gray-900 text-white": secondary,
-      "border-green-500 bg-green-500 text-white": success,
-      "border-yellow-500 bg-yellow-500 text-white": warning,
-      "border-red-500 bg-red-500 text-white": danger,
-      "rounded-full": rounded,
-      "bg-white": outline,
-      "text-blue ": outline && primary,
-      "text-gray-900": outline && secondary,
-      "text-green-700": outline && success,
-      "text-yellow-500": outline && warning,
-      "text-red-500": outline && danger,
-    })
-  );
+  const classes = classNames(rest.className, {
+    primary: primary,
+    secondary: secondary,
+    warning: warning,
+    danger: danger,
+    disable: disabled,
+    rounded: rounded,
+    outline: outline,
+    "btn--small": small,
+    "btn--medium": medium,
+    "btn--large": large,
+    "btn__outline--primary": primary && outline,
+    "btn__outline--warning": warning && outline,
+    "btn__outline--danger": outline && danger,
+  });
   return (
-    <button {...rest} className={classes}>
+    <button {...rest} className={`btn btn__${classes}`}>
+      <span className={`btn__${icon}`}>{icon}</span>
       {children}
     </button>
   );

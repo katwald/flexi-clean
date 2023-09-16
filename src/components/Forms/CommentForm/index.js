@@ -16,6 +16,7 @@ const Comment = ({ singleBooking }) => {
     };
 
     dispatch(addComment(singleBooking.id, commentObj));
+    setComment("");
   };
   return (
     <div>

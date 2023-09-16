@@ -4,10 +4,10 @@
 // theme colors
 $dark:rgb(46, 45, 45);
 $light:#fff;
-$primary:#107c6e;
-$secondary: #18c888;
-$error: #d32752;
-$info: #f6c31c;
+$primary:#2696a0;
+$secondary: #6d837f;
+$danger: #d32752;
+$warning: #f6c31c;
 $light-gray: rgb(157, 156, 156);
 
 
@@ -24,11 +24,11 @@ $base-box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
 // font sizes
 $base-font-sizes: 1rem;
 
-@mixin breakpoint($point){
-    @if $point == md{
-        //768px
-        @media(min-width:48em){
-            @content
-        }
-    }
-}
+// @mixin breakpoint($point){
+//     @if $point == md{
+//         //768px
+//         @media(min-width:48em){
+//             @content
+//         }
+//     }
+// }

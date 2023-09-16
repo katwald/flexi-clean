@@ -75,15 +75,12 @@ const SingleBooking = ({ singleBooking }) => {
       <>
         {assignedCleaner ? (
           <>
-            <span className="booking__assigned-to">
-              Assigned to: {assignedCleaner}
-            </span>
+            <span className="booking__assigned-to">{assignedCleaner}</span>
             <span className="booking__assign-button">
               <button
                 onClick={() => handleRemoveAssignedEmployee(singleBooking)}
-                style={{ height: 32 }}
               >
-                cancel
+                Cancel
               </button>
             </span>
           </>
