@@ -17,13 +17,22 @@ border-bottom: 1px solid rgb(212, 211, 211);
     padding: 12px 0; ;
     font-size: 18px;
     line-height: 2;
+    &__modify{
+        display:flex;
+    }
     &__cleaning-date-title,&__checkin--date-title, &__checkout-date-title, &__description-title{
-        font-size: 22px;
+        font-size: 16px;
         font-weight: 600;
 
     }
+    &__description-title{
+        border-top: 1px solid rgb(212, 211, 211);
+        width: 50vw;
+    }
     &__cleaning-date, &__checkin-date, &__checkout-date{
-        color: $light-gray
+        color: $light-gray;
+        font-size: 14px;
+
     }
 }
 &__comments{

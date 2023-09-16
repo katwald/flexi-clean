@@ -124,14 +124,11 @@ const SingleBooking = ({ singleBooking }) => {
               {bookingDescription}
             </p>
           </div>
-          <div className="booking__modify">
-            <span>
-              {" "}
-              <button onClick={() => handleEditBooking()}>edit booking</button>
-              <button onClick={() => handleDeleteBooking(singleBooking.id)}>
-                delete booking
-              </button>
-            </span>
+          <div className="booking__content__modify">
+            <button onClick={() => handleEditBooking()}>Edit</button>
+            <button onClick={() => handleDeleteBooking(singleBooking.id)}>
+              Delete
+            </button>
           </div>
         </div>
         <div className="booking__comments">
