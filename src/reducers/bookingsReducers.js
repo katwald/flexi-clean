@@ -42,11 +42,19 @@ const bookingSlice = createSlice({
       );
       return removedbookings;
     },
+    appendComment(state, action) {
+      state.push(action.payload);
+    },
   },
 });
 
-export const { setBookings, appendBooking, modifyBooking, deleteBooking } =
-  bookingSlice.actions;
+export const {
+  setBookings,
+  appendBooking,
+  modifyBooking,
+  deleteBooking,
+  appendComment,
+} = bookingSlice.actions;
 
 export const initializeBookings = () => {
   return async (dispatch) => {
@@ -56,7 +64,6 @@ export const initializeBookings = () => {
 };
 
 export const createBooking = (bookinObject) => {
-  console.log("initial object..", initialState, "booking obj", bookinObject);
   const { bookingDescription, bookingStart, bookingEnd, cleaningDate } =
     bookinObject.bookingStatus;
   const newObj = {
@@ -70,7 +77,6 @@ export const createBooking = (bookinObject) => {
       cleaningDate: cleaningDate,
     },
   };
-  console.log("and this is new: ", newObj);
   return async (dispatch) => {
     const response = await bookingServices.createNew(newObj);
     dispatch(appendBooking(response));
@@ -86,6 +92,14 @@ export const removeBooking = (bookingId) => {
   return async (dispatch) => {
     await bookingServices.remove(bookingId);
     dispatch(deleteBooking(bookingId));
+  };
+};
+export const addComment = (bookingId, commentObj) => {
+  return async (dispatch) => {
+    // Api request should be changed to create, when it will be integreted with backend api.
+    const response = await bookingServices.update(bookingId, commentObj);
+    console.log("response", response);
+    dispatch(appendComment(response));
   };
 };
 
