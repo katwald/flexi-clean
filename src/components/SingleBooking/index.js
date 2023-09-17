@@ -169,7 +169,7 @@ const SingleBooking = ({ singleBooking }) => {
 
         {editBookingModal && (
           <div className="edit-form">
-            <Modal setShowModal={setEditBookingModal}>
+            <Modal title="Edit Booking" setShowModal={setEditBookingModal}>
               <EditBookingForm
                 _booking={singleBooking}
                 _venue={singleBooking.venueName}
