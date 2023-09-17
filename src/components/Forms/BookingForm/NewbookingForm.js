@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { createBooking } from "../../../reducers/bookingsReducers";
 
 import Button from "../../Button";
+import Input from "../../Input";
+import TextArea from "../../TextArea";
 
 import "./index.scss";
 
@@ -39,45 +41,47 @@ const BookingForm = () => {
     setCleaningTag("");
   };
   return (
-    <div className="booking-form">
-      <form onSubmit={handleAddBooking}>
-        <div>
-          <div>
-            <label>Venue</label>
-          </div>
-          <input
+    <form onSubmit={handleAddBooking}>
+      <div className="booking-form">
+        <h1 className="booking-form__header">New booking</h1>
+        <div className="booking-form__input">
+          <Input
             name="venue"
+            label="Venue"
             value={venue}
             onChange={({ target }) => setVenue(target.value)}
           />
         </div>
-        <div>
-          <div>
-            <label>Start Date</label>
-          </div>
-          <input
+        <div className="booking-form__input">
+          <Input
             name="start date"
+            label="Start Date"
             value={startDate}
             type="datetime-local"
             onChange={({ target }) => setStartDate(target.value)}
           />
         </div>
-        <div>
-          <div>
-            <label>End Date</label>
-          </div>
-          <input
+        <div className="booking-form__input">
+          <Input
             name="end date"
             value={endDate}
+            label="End Date"
             type="datetime-local"
             onChange={({ target }) => setEndDate(target.value)}
           />
         </div>
-        <div>
-          <div>
-            <label>Description</label>
-          </div>
-          <textarea
+        <div className="booking-form__input">
+          <Input
+            name="cleaningDate"
+            label="Cleaning Date"
+            value={endDate}
+            type="datetime-local"
+            onChange={({ target }) => setCleaningDate(target.value)}
+          />
+        </div>
+        <div className="booking-form__text-area">
+          <TextArea
+            label="Description"
             name="description"
             value={description}
             rows="4"
@@ -86,37 +90,24 @@ const BookingForm = () => {
             onChange={({ target }) => setDescription(target.value)}
           />
         </div>
-        <div>
-          <div>
-            <label>cleaningDate</label>
-          </div>
-          <input
-            name="cleaningDate"
-            value={endDate}
-            type="datetime-local"
-            onChange={({ target }) => setCleaningDate(target.value)}
-          />
-        </div>
-        <div>
-          <div>
-            <label>cleaning Description</label>
-          </div>
-          <textarea
+        {/* <div>
+          <TextArea
             name="cleaning-tag"
+            label="Description"
             value={cleaningTag}
             rows="4"
             cols="30"
             type="text"
             onChange={({ target }) => setCleaningTag(target.value)}
           />
-        </div>
-        <div>
+        </div> */}
+        <div className="booking-form__button">
           <Button primary type="submit">
             Submit
           </Button>
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
   );
 };
 

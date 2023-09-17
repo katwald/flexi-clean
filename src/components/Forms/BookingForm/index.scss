@@ -1,10 +1,31 @@
+@import "../../../styles/_variables";
 .booking-form{
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid;
-    padding: 24px 18px;
+  border: 0px solid $light-gray;
+  border-radius: 8px;
+  box-shadow: 1px 0px 10px $light-gray;
+  width: 500px;
+  height: 640px;
+  margin: 5% auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+ &__header{
+  padding: 42px 0 10px;
+  border-bottom: 0.2px solid $light-gray;
+  text-align: center;
+  font-size: 24px;
+ }
+  &__text-area, &__input, &__button{
+    margin-top: 40px;
     width: 350px;
-    display:flex;
-    margin:auto;
-    margin-top:2%;
+
+  }
+  &__text-area{
+    height: 80px;
+
+  }
+  &__button{
+    margin-top: 48px;
+  }
 }
