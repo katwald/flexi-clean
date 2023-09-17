@@ -5,6 +5,7 @@ import { createEmployees } from "../../../reducers/employeesReducer";
 import useField from "../../../hooks/useField";
 
 import Button from "../../Button";
+import Input from "../../Input";
 
 import "./index.scss";
 
@@ -30,45 +31,30 @@ const CreateEmployeeForm = () => {
   };
 
   return (
-    <div className="employee-form">
-      <form onSubmit={handleCreateUser}>
-        <h4>Create new worker</h4>
-        <div>
-          <div>
-            <label>FirstName:</label>
-          </div>
-          <input {...firstName} />
+    <form onSubmit={handleCreateUser}>
+      <div className="employee-form">
+        <h1 className="employee-form__header">Add Employee</h1>
+        <div className="employee-form__input">
+          <Input label="FirstName" {...firstName} />
         </div>
-        <br />
-        <div>
-          <div>
-            <label>Last Name:</label>
-          </div>
-          <input {...lastName} />
+        <div className="employee-form__input">
+          <Input label="Last Name" {...lastName} />
         </div>
-        <br />
 
-        <div>
-          <div>
-            <label>email:</label>
-          </div>
-          <input {...email} />
+        <div className="employee-form__input">
+          <Input type="email" label="email" {...email} />
         </div>
-        <br />
 
-        <div>
-          <div>
-            <label>contact:</label>
-          </div>
-          <input {...contactNumber} />
+        <div className="employee-form__input">
+          <Input label="contact" {...contactNumber} />
         </div>
-        <br />
-
-        <Button primary type="submit">
-          create
-        </Button>
-      </form>
-    </div>
+        <div className="employee-form__button">
+          <Button primary type="submit">
+            create
+          </Button>
+        </div>
+      </div>
+    </form>
   );
 };
 

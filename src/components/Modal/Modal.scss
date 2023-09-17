@@ -1,15 +1,16 @@
-
+@import "../../styles/_variables";
 .modal {
     position: absolute;
     left: 0;
     right:0;
     bottom:0;
-    background-color: rgb(75, 74, 74);
+    background-color: rgb(230, 230, 230);
     display: flex;
     /* align-items: center; */
     justify-content: center;
     height:100%;
     opacity:0.9;
+
 }
 .modal-content{
     width: 500px;
@@ -17,6 +18,8 @@
     max-height: 650px;
     background-color: #ffff;
     margin-top: 12%;
+    border-radius: 8px;
+    box-shadow: 1px 0px 10px $light-gray;
 }
 .modal-header{
     padding: 20px;
