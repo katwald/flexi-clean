@@ -18,12 +18,12 @@ border-bottom: 1px solid rgb(212, 211, 211);
 &__assigned-to{
     margin-right: 5px;
 }
-&__assign-button > button{
-    border: 2px solid orange;
-    border-radius: $borderRadius;
-    padding:4px 8px;
+// &__assign-button > button{
+//     border: 2px solid orange;
+//     border-radius: $borderRadius;
+//     padding:4px 8px;
 
-}
+// }
 &__content{
     display:flex;
     padding: 12px 0; ;

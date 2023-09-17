@@ -8,7 +8,7 @@ import { updateBooking } from "../../reducers/bookingsReducers";
 import EditBookingForm from "../Forms/BookingForm/EditBookingForm";
 import CommentForm from "../Forms/CommentForm";
 import Modal from "../Modal";
-
+import Button from "../Button";
 import "./index.scss";
 
 const SingleBooking = ({ singleBooking }) => {
@@ -77,11 +77,14 @@ const SingleBooking = ({ singleBooking }) => {
           <>
             <span className="booking__assigned-to">{assignedCleaner}</span>
             <span className="booking__assign-button">
-              <button
+              <Button
+                small
+                outline
+                warning
                 onClick={() => handleRemoveAssignedEmployee(singleBooking)}
               >
                 Cancel
-              </button>
+              </Button>
             </span>
           </>
         ) : (
@@ -122,10 +125,17 @@ const SingleBooking = ({ singleBooking }) => {
             </p>
           </div>
           <div className="booking__content__modify">
-            <button onClick={() => handleEditBooking()}>Edit</button>
-            <button onClick={() => handleDeleteBooking(singleBooking.id)}>
+            <Button small outline primary onClick={() => handleEditBooking()}>
+              Edit
+            </Button>
+            <Button
+              small
+              outline
+              danger
+              onClick={() => handleDeleteBooking(singleBooking.id)}
+            >
               Delete
-            </button>
+            </Button>
           </div>
         </div>
         <div className="booking__comments">

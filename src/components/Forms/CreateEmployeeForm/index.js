@@ -1,8 +1,10 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-import useField from "../../../hooks/useField";
 import { createEmployees } from "../../../reducers/employeesReducer";
+import useField from "../../../hooks/useField";
+
+import Button from "../../Button";
 
 import "./index.scss";
 
@@ -62,7 +64,9 @@ const CreateEmployeeForm = () => {
         </div>
         <br />
 
-        <button type="submit">create</button>
+        <Button primary type="submit">
+          create
+        </Button>
       </form>
     </div>
   );

@@ -7,6 +7,7 @@ import {
 } from "../../reducers/employeesReducer";
 
 import CreateEmployeeForm from "../Forms/CreateEmployeeForm";
+import Button from "../Button";
 
 import "./index.scss";
 
@@ -25,9 +26,14 @@ const EmployeesList = () => {
         {`${employee.firstName || "empty"} ${employee.lastName || "empty"}`}{" "}
         <span>{employee.contact}</span>{" "}
         <span>
-          <button onClick={() => dispatch(DeleteEmployee(employee.id))}>
+          <Button
+            danger
+            small
+            outline
+            onClick={() => dispatch(DeleteEmployee(employee.id))}
+          >
             remove
-          </button>
+          </Button>
         </span>
       </li>
     ));

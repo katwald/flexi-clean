@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 
 import { updateBooking } from "../../../reducers/bookingsReducers";
 
+import Button from "../.././Button";
+
 const BookingForm = ({
   _venue,
   _startDate,
@@ -90,7 +92,9 @@ const BookingForm = ({
           onChange={({ target }) => setCleaningTag(target.value)}
         />
         <div>
-          <button type="submit">submit</button>
+          <Button primary type="submit">
+            submit
+          </Button>
         </div>
       </form>
     </div>

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { addComment } from "../../../reducers/bookingsReducers";
+import Button from "../../Button";
 
 const Comment = ({ singleBooking }) => {
   const dispatch = useDispatch();
@@ -29,13 +30,13 @@ const Comment = ({ singleBooking }) => {
             name="comment"
             value={comment}
             rows="4"
-            cols="30"
+            cols="35"
             type="text"
             onChange={({ target }) => setComment(target.value)}
           />
         </div>
         <div>
-          <button type="submit">Add</button>
+          <Button primary>Add</Button>
         </div>
       </form>
     </div>

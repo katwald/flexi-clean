@@ -2,12 +2,13 @@
 
 
 .btn{
-    display:flex;
-    align-items: center;
-    padding:8px 12px;
-    margin:12px;
+    width: 80px;
+    height: 40px;
+    padding: 8px 12px;
     border-radius: 2px;
     font-size :16px;
+    font-weight: 600;
+    text-align: center;
 
     &__primary{
         border:1px solid $primary;
@@ -56,11 +57,16 @@
 
     &--small{
         font-size: small;
-        padding: 4px 8px;
+        padding: 2px 2px;
+        height: 25px;
+        min-width: 48px;
+        max-width: 80px;;
     }
     &--medium{
         font-size: medium;
-        padding: 4px 8px;
+        padding: 2px 4px;
+        width: 64px;
+        height: 35px;
     }
     &--large{
         font-size: larger;

@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { createBooking } from "../../../reducers/bookingsReducers";
+
+import Button from "../../Button";
+
 import "./index.scss";
 
 const BookingForm = () => {
@@ -108,7 +111,9 @@ const BookingForm = () => {
           />
         </div>
         <div>
-          <button type="submit">submit</button>
+          <Button primary type="submit">
+            Submit
+          </Button>
         </div>
       </form>
     </div>
