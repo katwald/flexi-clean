@@ -8,7 +8,7 @@ const Modal = ({ title, children, setShowModal }) => {
       <div className="modal-content">
         <div className="modal-header">
           <div></div>
-          <h4 className="modal-title">{title}</h4>
+          <h1 className="modal-title">{title}</h1>
           <button onClick={() => setShowModal(false)}>X</button>
         </div>
         <div className="modal-body">{children}</div>

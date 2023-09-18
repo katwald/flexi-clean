@@ -1,21 +1,26 @@
 
 
 .nav-bar{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    column-gap: 12px;;
-    text-decoration: none;
     background-color: rgb(140, 172, 172);
-    padding:10px 0px;
-}
-.nav{
-    // font-weight: 900;
-    // font-size: x-large;
-    border: 2px solid white;
-    padding: 3px 6px;
-    a {
+    padding:10px 48px;
+    &__container{
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        column-gap: 12px;
         text-decoration: none;
-        color: white;
+        width: 83%;
+        margin: auto;
+
     }
+    &__nav{
+        font-weight: 700;
+        font-size: large;
+        border: 2px solid white;
+        padding: 3px 24px;
+        a {
+            text-decoration: none;
+            color: white;
+        }
+}
 }

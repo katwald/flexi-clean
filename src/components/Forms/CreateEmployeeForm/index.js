@@ -33,7 +33,6 @@ const CreateEmployeeForm = () => {
   return (
     <form onSubmit={handleCreateUser}>
       <div className="employee-form">
-        <h1 className="employee-form__header">Add Employee</h1>
         <div className="employee-form__input">
           <Input label="FirstName" {...firstName} />
         </div>

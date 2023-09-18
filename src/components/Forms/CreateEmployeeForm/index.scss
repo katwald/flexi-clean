@@ -1,22 +1,12 @@
 @import "../../../styles/_variables";
 
 .employee-form{
-  border: 0px solid $light-gray;
-  border-radius: 8px;
-  box-shadow: 1px 0px 10px $light-gray;
   width: 500px;
   height: 500px;
-  margin: 5% auto;
+  margin: 0  auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-
- &__header{
-    padding: 42px 0 10px;
-    border-bottom: 0.2px solid $light-gray;
-    text-align: center;
-    font-size: 24px;
-   }
 
   &__input, &__button{
     margin-top: 40px;

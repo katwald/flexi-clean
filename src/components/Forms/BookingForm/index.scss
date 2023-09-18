@@ -1,11 +1,9 @@
 @import "../../../styles/_variables";
 .booking-form{
   border: 0px solid $light-gray;
-  border-radius: 8px;
-  box-shadow: 1px 0px 10px $light-gray;
   width: 500px;
   height: 640px;
-  margin: 5% auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;

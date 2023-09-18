@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
+import Button from "../Button";
+import NewbookingForm from "../Forms/BookingForm/NewbookingForm";
+import Modal from "../Modal";
 import "./index.scss";
 
 const Bookings = () => {
   const bookings = useSelector((state) => state.bookings);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const navigate = useNavigate();
   const handleRowClick = (id) => navigate(`/bookings/${id}`);
@@ -35,9 +39,20 @@ const Bookings = () => {
     });
 
   return (
-    <div>
+    <div className="booking-list">
+      <div className="booking-list__header">
+        <div></div>
+        <h1 className="employee-list__title">Booking List </h1>
+        <Button primary large onClick={() => setModalOpen(!modalOpen)}>
+          Add
+        </Button>
+        {modalOpen && (
+          <Modal setShowModal={setModalOpen} title={"Add NewBooking"}>
+            <NewbookingForm />
+          </Modal>
+        )}
+      </div>
       <table>
-        <caption>Booking Lists</caption>
         <thead>
           <tr>
             <th scope="col">Venue Name</th>

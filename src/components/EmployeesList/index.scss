@@ -1,4 +1,18 @@
 .employee-list{
-width: 50%;
-margin:auto;
+    margin: 0 auto;
+width: 80%;
+&__header{
+    display:flex;
+    justify-content: space-between;
+    padding: 28px 0;
+    font-size: 16px;;
 }
+&__body{
+    &__button{
+    display:block;
+    width:48px;
+    margin: auto;
+}
+}
+}
+

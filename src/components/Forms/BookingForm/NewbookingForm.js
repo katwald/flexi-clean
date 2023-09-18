@@ -43,7 +43,6 @@ const BookingForm = () => {
   return (
     <form onSubmit={handleAddBooking}>
       <div className="booking-form">
-        <h1 className="booking-form__header">New booking</h1>
         <div className="booking-form__input">
           <Input
             name="venue"
