@@ -54,7 +54,6 @@ export const createEmployees = (bookingObject) => {
 };
 
 export const DeleteEmployee = (id) => {
-  console.log("idddin action", id);
   return async (dispatch) => {
     await employeesService.remove(id);
     dispatch(removeEmployee(id));

@@ -110,15 +110,14 @@ const SingleBooking = ({ singleBooking }) => {
         </div>
         <div className="booking__content">
           <div>
-            <h3 className="booking__content__cleaning-date-title">
-              {" "}
-              Cleaning Date
-            </h3>
-            <p className="booking__content__cleaning-date">{cleaningDate}</p>
             <h3 className="booking__content__checkin--date-title">Checkin</h3>
             <p className="booking__content__checkin-date">{bookingStart}</p>
             <h3 className="booking__content__checkout-date-title">Checkout</h3>
             <p className="booking__content__checkout-date">{bookingEnd}</p>
+            <h3 className="booking__content__cleaning-date-title">
+              Cleaning Date
+            </h3>
+            <p className="booking__content__cleaning-date">{cleaningDate}</p>
             <h3 className="booking__content__description-title">Description</h3>
             <p className="booking__content__description">
               {bookingDescription}

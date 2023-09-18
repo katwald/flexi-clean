@@ -5,11 +5,16 @@ import { useNavigate } from "react-router-dom";
 import Button from "../Button";
 import NewbookingForm from "../Forms/BookingForm/NewbookingForm";
 import Modal from "../Modal";
+import Notification from "../Notification";
+
 import "./index.scss";
 
 const Bookings = () => {
   const bookings = useSelector((state) => state.bookings);
+  const notification = useSelector((state) => state.notification);
   const [modalOpen, setModalOpen] = useState(false);
+
+  const { message, messageType } = notification;
 
   const navigate = useNavigate();
   const handleRowClick = (id) => navigate(`/bookings/${id}`);
@@ -40,11 +45,14 @@ const Bookings = () => {
 
   return (
     <div className="booking-list">
+      {message && messageType && (
+        <Notification messageType={messageType} message={message} />
+      )}
       <div className="booking-list__header">
         <div></div>
         <h1 className="employee-list__title">Booking List </h1>
         <Button primary large onClick={() => setModalOpen(!modalOpen)}>
-          Add
+          New Booking
         </Button>
         {modalOpen && (
           <Modal setShowModal={setModalOpen} title={"Add NewBooking"}>

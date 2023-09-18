@@ -98,7 +98,6 @@ export const addComment = (bookingId, commentObj) => {
   return async (dispatch) => {
     // Api request should be changed to create, when it will be integreted with backend api.
     const response = await bookingServices.update(bookingId, commentObj);
-    console.log("response", response);
     dispatch(appendComment(response));
   };
 };

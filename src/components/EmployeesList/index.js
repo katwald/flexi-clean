@@ -9,12 +9,14 @@ import {
 import CreateEmployeeForm from "../Forms/CreateEmployeeForm";
 import Button from "../Button";
 import Modal from "../Modal";
+import Notification from "../Notification";
 
 import "./index.scss";
 
 const EmployeesList = () => {
   const dispatch = useDispatch();
   const employeesList = useSelector((state) => state.employees);
+  const notification = useSelector((state) => state.notification);
 
   const [modalOpen, setModalOpen] = useState(false);
   useEffect(() => {
@@ -35,7 +37,6 @@ const EmployeesList = () => {
             <Button
               danger
               small
-              outtrne
               onClick={() => dispatch(DeleteEmployee(employee.id))}
             >
               remove
@@ -44,8 +45,12 @@ const EmployeesList = () => {
         </td>
       </tr>
     ));
+  const { message, messageType } = notification;
   return (
     <div className="employee-list">
+      {message && messageType && (
+        <Notification message={message} messageType={messageType} />
+      )}
       <div className="employee-list__header">
         <div></div>
         <h1 className="employee-list__title">Employees List </h1>

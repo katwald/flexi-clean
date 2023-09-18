@@ -2,6 +2,11 @@ import React from "react";
 import { useDispatch } from "react-redux";
 
 import { createEmployees } from "../../../reducers/employeesReducer";
+import {
+  setNotification,
+  setNotificationType,
+} from "../../../reducers/notificationReducer";
+
 import useField from "../../../hooks/useField";
 
 import Button from "../../Button";
@@ -25,6 +30,9 @@ const CreateEmployeeForm = () => {
       email: email.value,
     };
     dispatch(createEmployees(obj));
+    dispatch(setNotification(`${firstName.value} successfully added. `));
+    dispatch(setNotificationType("success"));
+
     firstName.reset();
     lastName.reset();
     contactNumber.reset();

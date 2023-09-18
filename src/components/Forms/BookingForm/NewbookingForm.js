@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { createBooking } from "../../../reducers/bookingsReducers";
+import {
+  setNotification,
+  setNotificationType,
+} from "../../../reducers/notificationReducer";
 
 import Button from "../../Button";
 import Input from "../../Input";
@@ -32,6 +36,12 @@ const BookingForm = () => {
     };
 
     dispatch(createBooking(bookingObject));
+    dispatch(
+      setNotification(
+        `${bookingObject.venueName} info has been successfully added. `
+      )
+    );
+    dispatch(setNotificationType("success"));
     setCleaningDate("");
     setVenue("");
     setStartDate("");

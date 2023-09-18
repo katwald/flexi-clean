@@ -2,13 +2,13 @@
   "bookings": [
     {
       "id": 4714444,
-      "venueName": "Roba 1",
+      "venueName": "Roba Lounge One",
       "bookingStatus": {
         "bookingStart": "2023-09-12T23:05",
         "bookingEnd": "2023-09-06T23:05",
         "bookingDescription": "Here comes booking details ss",
         "cleaningDate": " 06 2023 18:14:44 ",
-        "cleaningTag":"Normal Cleaning"
+        "cleaningTag": " Weird tag"
       },
       "cleaningStatus": {
         "cleanedDate": "",
@@ -16,7 +16,10 @@
         "cleaningStatus": "unknown",
         "cleaningHour": 5
       },
-      "comments": []
+      "comments": [
+        "Customer left some clothes and drinks. Items  can be found in Cleaning closet",
+        "Ok Thanks"
+      ]
     },
     {
       "venueName": "Venue namew",
@@ -25,7 +28,41 @@
         "bookingStart": "2023-09-15T07:25",
         "bookingEnd": "2023-09-15T19:25",
         "cleaningDate": "2023-09-16T07:25",
-        "cleaningTag":"Normal Cleaning"
+        "cleaningTag": "Normal Cleaning"
+      },
+      "cleaningStatus": {
+        "cleanedDate": "",
+        "assignedCleaner": "devendra katwal",
+        "cleaningStatus": "",
+        "cleaningHour": 0
+      },
+      "comments": [],
+      "id": 4714445
+    },
+    {
+      "venueName": "Robalounge 2",
+      "bookingStatus": {
+        "bookingDescription": " chocolate Drinks.",
+        "bookingStart": "2023-09-17T08:29",
+        "bookingEnd": "2023-09-17T16:29",
+        "cleaningDate": "2023-09-18T16:29"
+      },
+      "cleaningStatus": {
+        "cleanedDate": "",
+        "assignedCleaner": "Diwas Katwal",
+        "cleaningStatus": "",
+        "cleaningHour": 0
+      },
+      "comments": [],
+      "id": 4714446
+    },
+    {
+      "venueName": "New venue",
+      "bookingStatus": {
+        "bookingDescription": "this is new venue",
+        "bookingStart": "2023-09-19T21:10",
+        "bookingEnd": "2023-09-20T21:10",
+        "cleaningDate": "2023-09-21T21:10"
       },
       "cleaningStatus": {
         "cleanedDate": "",
@@ -34,7 +71,24 @@
         "cleaningHour": 0
       },
       "comments": [],
-      "id": 4714445
+      "id": 4714448
+    },
+    {
+      "venueName": "newww one",
+      "bookingStatus": {
+        "bookingDescription": "asdfadsf",
+        "bookingStart": "2023-09-18T21:49",
+        "bookingEnd": "2023-09-19T21:49",
+        "cleaningDate": "2023-09-18T21:49"
+      },
+      "cleaningStatus": {
+        "cleanedDate": "",
+        "assignedCleaner": "",
+        "cleaningStatus": "",
+        "cleaningHour": 0
+      },
+      "comments": [],
+      "id": 4714449
     }
   ],
   "employees": [
@@ -53,6 +107,38 @@
       "contact": "05422322",
       "userType": "worker",
       "id": 3
+    },
+    {
+      "firstName": "Naresh",
+      "lastName": "Maharjan",
+      "email": "Naresh@gmail.com",
+      "contact": "04055655",
+      "userType": "worker",
+      "id": 4
+    },
+    {
+      "firstName": "Naya",
+      "lastName": "Bhai",
+      "email": "Naya@gmail.com",
+      "contact": "009443",
+      "userType": "worker",
+      "id": 5
+    },
+    {
+      "firstName": "Lalu pardad",
+      "lastName": "Yadav",
+      "email": "lalu@lalu.com",
+      "contact": "100110",
+      "userType": "worker",
+      "id": 6
+    },
+    {
+      "firstName": "llalu",
+      "lastName": "klasdkfj",
+      "email": "kalsdjf@aslkdjf",
+      "contact": "asdf",
+      "userType": "worker",
+      "id": 7
     }
   ]
 }
