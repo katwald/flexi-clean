@@ -35,6 +35,7 @@ const CreateEmployeeForm = () => {
 
     firstName.reset();
     lastName.reset();
+    email.reset();
     contactNumber.reset();
   };
 

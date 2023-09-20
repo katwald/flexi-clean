@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { updateBooking } from "../../../reducers/bookingsReducers";
+import {
+  setNotification,
+  setNotificationType,
+} from "../../../reducers/notificationReducer";
 
 import Button from "../.././Button";
 import Input from "../../Input";
@@ -35,13 +39,14 @@ const BookingForm = ({
         bookingStart: startDate,
         bookingEnd: endDate,
       },
-      //   cleaningStatus: {
-      //     ..._booking.cleaningStatus,
-      //     assignedCleaner: assignedWorker,
-      //   },
     };
     dispatch(updateBooking(_booking.id, updatedBookingObj));
-    // dispatch(null);
+    dispatch(
+      setNotification(
+        `${updatedBookingObj.venueName} info has been successfully updated. `
+      )
+    );
+    dispatch(setNotificationType("success"));
   };
   return (
     <form onSubmit={dispatchUpdatebooking}>

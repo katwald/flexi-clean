@@ -2,9 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
-  DeleteEmployee,
+  deleteEmployee,
   initializeEmployees,
 } from "../../reducers/employeesReducer";
+import {
+  setNotification,
+  setNotificationType,
+} from "../../reducers/notificationReducer";
 
 import CreateEmployeeForm from "../Forms/CreateEmployeeForm";
 import Button from "../Button";
@@ -23,6 +27,15 @@ const EmployeesList = () => {
     dispatch(initializeEmployees());
   }, []);
 
+  const handleDeleteEmployee = (id, name) => {
+    if (
+      window.confirm(`Are you sure you want delete  ${name}  employee List ? `)
+    ) {
+      dispatch(deleteEmployee(id));
+      dispatch(setNotification(`${name}  has been successfully deleted. `));
+      dispatch(setNotificationType("success"));
+    }
+  };
   const renderEmployees = () =>
     employeesList &&
     employeesList.map((employee) => (
@@ -37,7 +50,9 @@ const EmployeesList = () => {
             <Button
               danger
               small
-              onClick={() => dispatch(DeleteEmployee(employee.id))}
+              onClick={() =>
+                handleDeleteEmployee(employee.id, employee.firstName)
+              }
             >
               remove
             </Button>

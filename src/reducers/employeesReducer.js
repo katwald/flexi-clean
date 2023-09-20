@@ -53,7 +53,7 @@ export const createEmployees = (bookingObject) => {
   };
 };
 
-export const DeleteEmployee = (id) => {
+export const deleteEmployee = (id) => {
   return async (dispatch) => {
     await employeesService.remove(id);
     dispatch(removeEmployee(id));

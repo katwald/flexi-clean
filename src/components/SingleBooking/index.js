@@ -1,28 +1,50 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { BiUser } from "react-icons/bi";
 
 import { removeBooking } from "../../reducers/bookingsReducers";
 import { updateBooking } from "../../reducers/bookingsReducers";
+import {
+  setNotification,
+  setNotificationType,
+} from "../../reducers/notificationReducer";
 
 import EditBookingForm from "../Forms/BookingForm/EditBookingForm";
 import CommentForm from "../Forms/CommentForm";
 import Modal from "../Modal";
 import Button from "../Button";
+import Notification from "../Notification";
+
 import "./index.scss";
 
 const SingleBooking = ({ singleBooking }) => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const employees = useSelector((state) => state.employees);
+  const notification = useSelector((state) => state.notification);
   const [editBookingModal, setEditBookingModal] = useState(false);
   const [booking, setBooking] = useState(null);
-  const employees = useSelector((state) => state.employees);
   const [workerModal, setWorkerModal] = useState(false);
+
+  const { message, messageType } = notification;
 
   const handleEditBooking = () => {
     setEditBookingModal(!editBookingModal);
   };
-  const handleDeleteBooking = (bookingId) => {
-    dispatch(removeBooking(bookingId));
+  const handleDeleteBooking = (bookingId, venueName) => {
+    if (
+      window.confirm(
+        `Are you sure you want delete  ${venueName} boooking Info ? `
+      )
+    ) {
+      dispatch(removeBooking(bookingId));
+      dispatch(
+        setNotification(`${venueName} info has been successfully deleted. `)
+      );
+      dispatch(setNotificationType("success"));
+      navigate("/");
+    }
   };
   const {
     bookingStart,
@@ -58,18 +80,48 @@ const SingleBooking = ({ singleBooking }) => {
     };
     dispatch(updateBooking(booking.id, updatedBookingObj));
   };
-  const renderEmployees = () =>
-    employees &&
-    employees.map((employee) => (
-      <li key={Number(employee.id)}>
-        {`${employee.firstName}  ${employee.lastName}`}{" "}
-        <span>
-          <button onClick={() => dispatchAssignedWorker(employee)}>
-            Assign
-          </button>
-        </span>
-      </li>
-    ));
+  const renderEmployees = () => {
+    return (
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {employees &&
+            employees.map((employee) => (
+              <tr key={Number(employee.id)}>
+                <td data-label="Name">
+                  {`${employee.firstName}  ${employee.lastName}`}
+                </td>
+                <td>
+                  <span className="employee-list__body__button">
+                    <Button
+                      primary
+                      outline
+                      small
+                      onClick={() => {
+                        dispatchAssignedWorker(employee);
+                        dispatch(
+                          setNotification(
+                            `${employee.firstName} ${employee.lastName}  has been successfully  Assigned. `
+                          )
+                        );
+                        dispatch(setNotificationType("success"));
+                      }}
+                    >
+                      Assign
+                    </Button>
+                  </span>
+                </td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
+    );
+  };
   const renderWorkerAssignment = () => {
     return (
       <>
@@ -88,12 +140,13 @@ const SingleBooking = ({ singleBooking }) => {
             </span>
           </>
         ) : (
-          <button
+          <Button
+            primary
             onClick={() => handleClickAssign(singleBooking)}
             style={{ height: 32 }}
           >
             Assign worker
-          </button>
+          </Button>
         )}
       </>
     );
@@ -101,6 +154,9 @@ const SingleBooking = ({ singleBooking }) => {
   return (
     <>
       <div className="booking">
+        {message && messageType && (
+          <Notification message={message} messageType={messageType} />
+        )}
         <div className="booking__header">
           <h1 className="booking__header__title">{singleBooking.venueName}</h1>
           <p>{singleBooking.bookingStatus.cleaningTag}</p>
@@ -131,7 +187,9 @@ const SingleBooking = ({ singleBooking }) => {
               small
               outline
               danger
-              onClick={() => handleDeleteBooking(singleBooking.id)}
+              onClick={() =>
+                handleDeleteBooking(singleBooking.id, singleBooking.venueName)
+              }
             >
               Delete
             </Button>
@@ -182,7 +240,9 @@ const SingleBooking = ({ singleBooking }) => {
           </div>
         )}
         {workerModal && (
-          <Modal setShowModal={setWorkerModal}>{renderEmployees()}</Modal>
+          <Modal setShowModal={setWorkerModal} title={"Assign Worker"}>
+            {renderEmployees()}
+          </Modal>
         )}
       </div>
     </>
