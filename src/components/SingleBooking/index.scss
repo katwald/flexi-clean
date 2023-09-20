@@ -1,9 +1,12 @@
 @import "../../styles/_variables";
 
 .booking{
-padding:12px 0; ;
-width: 50%;
-margin: auto;
+margin: 2%;
+padding:24px 42px ;
+width: 60%;
+border-radius: 8px;
+box-shadow: 0.5px 0px 5px $light-gray;
+margin: 2% auto;
 &__header{
     display:flex;
     flex-wrap: wrap;
