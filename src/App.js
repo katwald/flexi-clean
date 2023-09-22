@@ -11,6 +11,7 @@ import Bookings from "./components/BookingList";
 import BookingForm from "./components/Forms/BookingForm/NewbookingForm";
 import OldBookings from "./components/OldBookings/OldBookings";
 import SingleBooking from "./components/SingleBooking";
+import SignInForm from "./components/Forms/SignInForm";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -23,10 +24,15 @@ const App = () => {
   const bookings = useSelector((state) => state.bookings);
 
   const matchBooking = useMatch("/bookings/:id");
+  console.log(
+    "matchBooking",
+    matchBooking && matchBooking.params.id === bookings[0].id
+  );
 
-  const singleBooking = matchBooking
-    ? bookings.find((booking) => booking.id === Number(matchBooking.params.id))
-    : null;
+  const singleBooking =
+    matchBooking && matchBooking
+      ? bookings.find((booking) => booking.id === matchBooking.params.id)
+      : null;
   return (
     <div className="container">
       <Navigation />
@@ -39,7 +45,8 @@ const App = () => {
           path="/bookings/:id"
           element={<SingleBooking singleBooking={singleBooking} />}
         />
-        <Route path="/" element={<Bookings />} />
+        <Route path="/bookings" element={<Bookings />} />
+        <Route path="/" element={<SignInForm />} />
       </Routes>
     </div>
   );

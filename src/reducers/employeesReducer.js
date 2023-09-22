@@ -13,13 +13,13 @@ const employeeSlice = createSlice({
   name: "employees",
   initialState: initialState,
   reducers: {
-    setEmployees(state, action) {
+    setEmployees: (state, action) => {
       return action.payload;
     },
     appendEmployee(state, action) {
       state.push(action.payload);
     },
-    removeEmployee(state, action) {
+    removeEmployee: (state, action) => {
       const id = action.payload;
       const updatedUsers = state.filter((employee) => employee.id !== id);
       return updatedUsers;
@@ -33,7 +33,6 @@ export const { setEmployees, appendEmployee, removeEmployee } =
 export const initializeEmployees = () => {
   return async (dispatch) => {
     const employees = await employeesService.getAll();
-    console.log("aaaa", employees);
     dispatch(setEmployees(employees));
   };
 };

@@ -24,10 +24,10 @@ const bookingSlice = createSlice({
   name: "bookings",
   initialState: initialState,
   reducers: {
-    setBookings(state, action) {
+    setBookings: (state, action) => {
       return action.payload;
     },
-    appendBooking(state, action) {
+    appendBooking: (state, action) => {
       state.push(action.payload);
     },
     modifyBooking(state, action) {
@@ -36,13 +36,13 @@ const bookingSlice = createSlice({
       );
       return updatedBooking;
     },
-    deleteBooking(state, action) {
+    deleteBooking: (state, action) => {
       const removedbookings = state.filter(
         (booking) => booking.id !== action.payload
       );
       return removedbookings;
     },
-    appendComment(state, action) {
+    appendComment: (state, action) => {
       state.push(action.payload);
     },
   },

@@ -22,7 +22,7 @@ const Bookings = () => {
     bookings &&
     bookings.map((b) => {
       const { bookingStart, bookingEnd, cleaningDate } = b.bookingStatus;
-      const { assignedCleaner } = b.cleaningStatus;
+      const { assignedCleaner } = b.cleaningStatus || null;
       return (
         <tr
           key={Number(b.id)}

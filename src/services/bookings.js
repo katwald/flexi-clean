@@ -4,6 +4,7 @@ const baseUrl = "http://localhost:3001/bookings";
 
 const getAll = async () => {
   const response = await axios.get(baseUrl);
+  console.log("ddddataaa", response.data);
   return response.data;
 };
 

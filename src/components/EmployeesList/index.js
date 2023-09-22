@@ -10,7 +10,7 @@ import {
   setNotificationType,
 } from "../../reducers/notificationReducer";
 
-import CreateEmployeeForm from "../Forms/CreateEmployeeForm";
+import CreateEmployeeForm from "../Forms/SignUpForm";
 import Button from "../Button";
 import Modal from "../Modal";
 import Notification from "../Notification";
