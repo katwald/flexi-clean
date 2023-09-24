@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -22,12 +23,16 @@ const SingleBooking = ({ singleBooking }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const employees = useSelector((state) => state.employees);
+  const user = useSelector((state) => state.user);
   const notification = useSelector((state) => state.notification);
+
   const [editBookingModal, setEditBookingModal] = useState(false);
   const [booking, setBooking] = useState(null);
   const [workerModal, setWorkerModal] = useState(false);
 
   const { message, messageType } = notification;
+
+  const supervisor = user && user.user.role === "Supervisor";
 
   const handleEditBooking = () => {
     setEditBookingModal(!editBookingModal);
@@ -90,7 +95,8 @@ const SingleBooking = ({ singleBooking }) => {
           </tr>
         </thead>
         <tbody>
-          {employees &&
+          {supervisor ? (
+            employees &&
             employees.map((employee) => (
               <tr key={Number(employee.id)}>
                 <td data-label="Name">
@@ -117,7 +123,34 @@ const SingleBooking = ({ singleBooking }) => {
                   </span>
                 </td>
               </tr>
-            ))}
+            ))
+          ) : (
+            <tr>
+              <td data-label="Name">
+                {`${user.user.firstName}  ${user.user.lastName}`}
+              </td>
+              <td>
+                <span className="employee-list__body__button">
+                  <Button
+                    primary
+                    outline
+                    small
+                    onClick={() => {
+                      dispatchAssignedWorker(user.user);
+                      dispatch(
+                        setNotification(
+                          `${user.user.firstName} ${user.user.lastName}  has been successfully  Assigned. `
+                        )
+                      );
+                      dispatch(setNotificationType("success"));
+                    }}
+                  >
+                    Assign
+                  </Button>
+                </span>
+              </td>
+            </tr>
+          )}
         </tbody>
       </table>
     );
@@ -126,8 +159,20 @@ const SingleBooking = ({ singleBooking }) => {
     return (
       <>
         {assignedCleaner ? (
+          <span className="booking__assigned-to">{assignedCleaner}</span>
+        ) : (
+          <Button
+            primary
+            onClick={() => handleClickAssign(singleBooking)}
+            style={{ height: 32 }}
+          >
+            Assign worker
+          </Button>
+        )}
+        {assignedCleaner &&
+        (assignedCleaner === `${user.user.firstName} ${user.user.lastName}` ||
+          supervisor) ? (
           <>
-            <span className="booking__assigned-to">{assignedCleaner}</span>
             <span className="booking__assign-button">
               <Button
                 small
@@ -139,15 +184,7 @@ const SingleBooking = ({ singleBooking }) => {
               </Button>
             </span>
           </>
-        ) : (
-          <Button
-            primary
-            onClick={() => handleClickAssign(singleBooking)}
-            style={{ height: 32 }}
-          >
-            Assign worker
-          </Button>
-        )}
+        ) : null}
       </>
     );
   };
@@ -179,21 +216,23 @@ const SingleBooking = ({ singleBooking }) => {
               {bookingDescription}
             </p>
           </div>
-          <div className="booking__content__modify">
-            <Button small outline primary onClick={() => handleEditBooking()}>
-              Edit
-            </Button>
-            <Button
-              small
-              outline
-              danger
-              onClick={() =>
-                handleDeleteBooking(singleBooking.id, singleBooking.venueName)
-              }
-            >
-              Delete
-            </Button>
-          </div>
+          {supervisor && (
+            <div className="booking__content__modify">
+              <Button small outline primary onClick={() => handleEditBooking()}>
+                Edit
+              </Button>
+              <Button
+                small
+                outline
+                danger
+                onClick={() =>
+                  handleDeleteBooking(singleBooking.id, singleBooking.venueName)
+                }
+              >
+                Delete
+              </Button>
+            </div>
+          )}
         </div>
         <div className="booking__comments">
           <div>
@@ -240,7 +279,7 @@ const SingleBooking = ({ singleBooking }) => {
           </div>
         )}
         {workerModal && (
-          <Modal setShowModal={setWorkerModal} title={"Assign Worker"}>
+          <Modal setShowModal={setWorkerModal} title={"Assign Task"}>
             {renderEmployees()}
           </Modal>
         )}

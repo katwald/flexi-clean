@@ -1,8 +1,8 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { login } from "../../../reducers/authReducer";
+import { signIn } from "../../../reducers/authReducer";
 import {
   setNotification,
   setNotificationType,
@@ -18,6 +18,7 @@ import "./index.scss";
 const CreateEmployeeForm = () => {
   const dispatch = useDispatch();
   const Navigate = useNavigate();
+  const user = useSelector((state) => state.user);
 
   const email = useField("email");
   const password = useField("password");
@@ -27,7 +28,7 @@ const CreateEmployeeForm = () => {
       email: email.value,
       password: password.value,
     };
-    dispatch(login(credentials));
+    dispatch(signIn(credentials));
     dispatch(setNotification("login successfull."));
     dispatch(setNotificationType("success"));
     Navigate("/bookings");
@@ -35,7 +36,9 @@ const CreateEmployeeForm = () => {
     email.reset();
     password.reset();
   };
-
+  if (user) {
+    return Navigate("/bookings");
+  }
   return (
     <div className="login-form">
       <h1 className="login-form__header">Sign In</h1>

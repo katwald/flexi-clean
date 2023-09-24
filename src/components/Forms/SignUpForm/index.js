@@ -20,6 +20,7 @@ const CreateEmployeeForm = () => {
   const firstName = useField("name");
   const lastName = useField("lastName");
   const contactNumber = useField("contact");
+  const role = useField("role");
   const email = useField("email");
   const userName = useField("username");
   const password = useField("password");
@@ -29,6 +30,7 @@ const CreateEmployeeForm = () => {
       firstName: firstName.value,
       lastName: lastName.value,
       contact: contactNumber.value,
+      role: role.value,
       userName: userName.value,
       email: email.value,
       password: password.value,
@@ -40,9 +42,10 @@ const CreateEmployeeForm = () => {
 
       firstName.reset();
       lastName.reset();
+      contactNumber.reset();
+      role.reset();
       email.reset();
       password.reset();
-      contactNumber.reset();
     } catch (error) {
       dispatch(setNotification("oops !! some thing wen wrong"));
     }
@@ -57,17 +60,19 @@ const CreateEmployeeForm = () => {
         <div className="employee-form__input">
           <Input label="Last Name" {...lastName} />
         </div>
-
+        <div className="employee-form__input">
+          <Input label="contact" {...contactNumber} />
+        </div>
+        <div className="employee-form__input">
+          <Input label="Role" {...role} />
+        </div>
         <div className="employee-form__input">
           <Input type="email" label="email" {...email} />
         </div>
         <div className="employee-form__input">
-          <Input type="text" label="email" {...password} />
+          <Input type="text" label="password" {...password} />
         </div>
 
-        <div className="employee-form__input">
-          <Input label="contact" {...contactNumber} />
-        </div>
         <div className="employee-form__button">
           <Button primary type="submit">
             create

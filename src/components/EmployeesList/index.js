@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import {
   deleteEmployee,
@@ -19,8 +20,10 @@ import "./index.scss";
 
 const EmployeesList = () => {
   const dispatch = useDispatch();
+  const Navigate = useNavigate();
   const employeesList = useSelector((state) => state.employees);
   const notification = useSelector((state) => state.notification);
+  const user = useSelector((state) => state.user);
 
   const [modalOpen, setModalOpen] = useState(false);
   useEffect(() => {
@@ -37,6 +40,7 @@ const EmployeesList = () => {
     }
   };
   const renderEmployees = () =>
+    user &&
     employeesList &&
     employeesList.map((employee) => (
       <tr key={Number(employee.id)}>
@@ -60,15 +64,9 @@ const EmployeesList = () => {
         </td>
       </tr>
     ));
-  const { message, messageType } = notification;
-  return (
-    <div className="employee-list">
-      {message && messageType && (
-        <Notification message={message} messageType={messageType} />
-      )}
-      <div className="employee-list__header">
-        <div></div>
-        <h1 className="employee-list__title">Employees List </h1>
+  const addEmployeePopup = () => {
+    return (
+      <>
         <Button primary large onClick={() => setModalOpen(!modalOpen)}>
           Add
         </Button>
@@ -77,6 +75,21 @@ const EmployeesList = () => {
             <CreateEmployeeForm />
           </Modal>
         )}
+      </>
+    );
+  };
+  const { message, messageType } = notification;
+  if (!user || (user && user.user.role !== "Supervisor")) {
+    return Navigate("/");
+  }
+  return (
+    <div className="employee-list">
+      {message && messageType && (
+        <Notification message={message} messageType={messageType} />
+      )}
+      <div className="employee-list__header">
+        <h1 className="employee-list__title">Employees List </h1>
+        {addEmployeePopup()}
       </div>
       <table>
         <thead>
@@ -84,6 +97,7 @@ const EmployeesList = () => {
             <th scope="col">Name</th>
             <th scope="col">Contact</th>
             <th scope="col">Email</th>
+
             <th scope="col">Action</th>
           </tr>
         </thead>

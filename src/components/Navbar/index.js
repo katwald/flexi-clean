@@ -1,23 +1,26 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import "./index.scss";
 
 const Navigation = () => {
-  const navList = [
-    { label: "/", value: "Home" },
-    { label: "/worker", value: "worker" },
-    // { label: "/create-booking", value: "CreateBooking" },
-    // { label: "/old-bookings", value: "Old Bookings" }, TODO
-  ];
+  const user = useSelector((state) => state.user);
   return (
     <div className="nav-bar">
       <div className="nav-bar__container">
-        {navList.map((nav) => (
-          <div key={nav.label} className="nav-bar__nav">
-            <Link to={`${nav.label}`}>{nav.value}</Link>
+        <div className="nav-bar__nav">
+          {user ? (
+            <Link to={"/bookings"}>Bookings</Link>
+          ) : (
+            <Link to="/">Flexi Work</Link>
+          )}
+        </div>
+        {user && user.user.role === "Supervisor" && (
+          <div className="nav-bar__nav">
+            <Link to={"/employees"}>Employees</Link>
           </div>
-        ))}
+        )}
       </div>
     </div>
   );

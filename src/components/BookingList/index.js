@@ -11,13 +11,14 @@ import "./index.scss";
 
 const Bookings = () => {
   const bookings = useSelector((state) => state.bookings);
+  const user = useSelector((state) => state.user);
   const notification = useSelector((state) => state.notification);
   const [modalOpen, setModalOpen] = useState(false);
 
   const { message, messageType } = notification;
 
-  const navigate = useNavigate();
-  const handleRowClick = (id) => navigate(`/bookings/${id}`);
+  const Navigate = useNavigate();
+  const handleRowClick = (id) => Navigate(`/bookings/${id}`);
   const renderBookings =
     bookings &&
     bookings.map((b) => {
@@ -42,18 +43,23 @@ const Bookings = () => {
         </tr>
       );
     });
-
+  if (!user) {
+    return Navigate("/");
+  }
   return (
     <div className="booking-list">
       {message && messageType && (
         <Notification messageType={messageType} message={message} />
       )}
       <div className="booking-list__header">
-        <div></div>
         <h1 className="employee-list__title">Booking List </h1>
-        <Button primary large onClick={() => setModalOpen(!modalOpen)}>
-          New Booking
-        </Button>
+        <div>
+          {user && user.user.role === "Supervisor" && (
+            <Button primary large onClick={() => setModalOpen(!modalOpen)}>
+              New Booking
+            </Button>
+          )}
+        </div>
         {modalOpen && (
           <Modal setShowModal={setModalOpen} title={"Add NewBooking"}>
             <NewbookingForm />

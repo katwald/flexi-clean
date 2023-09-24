@@ -6,7 +6,7 @@ const initialState = {
   lastName: "Doe",
   email: "janeDoe@gmail.com",
   contact: "0451044544",
-  userType: "superVisor",
+  userType: "supervisor",
 };
 
 const employeeSlice = createSlice({
@@ -44,7 +44,7 @@ export const createEmployees = (bookingObject) => {
     lastName,
     email,
     contact,
-    userType: "worker",
+    role: "Employee",
   };
   return async (dispatch) => {
     const response = await employeesService.createNew(obj);

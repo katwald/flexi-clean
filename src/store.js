@@ -9,7 +9,7 @@ const store = configureStore({
     bookings: bookingReducers,
     employees: employeesReducers,
     notification: notificationReducers,
-    login: authReducers,
+    user: authReducers,
   },
 });
 export default store;
