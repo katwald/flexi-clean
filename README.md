@@ -1,30 +1,39 @@
+## Available Scripts
+
+In the project directory:
+
+    npm install    // installs all the needed library.
+    npm run server // starts json-server as well as json-auth-server.
+    npm start     // Runs the app in development mode.
+
+    First Login as admin using below credential.
+
+        email: devendra.katwal@gmail.com
+        pass:  devendra
+
+    After logged in as admin/supervisor you can add new employee by pressing Add New button and  filling up the signUp form.
+    in order to see employee level functionality you need to  signIn  as employee using credentials you recently added.f
+
 # FlexiClean app
 
 - A company has few cottages where customer visits for a day, night or for a week.After every bookings venue needs cleaning. Since the cleaning time varies depending on the type of booking.Due this fact company needs several part time cleaners who can assign themselves to the work whenever they have time to do so.
 
 Using FlexiClean app
 
-Cleaner
+As a Cleaner you can:
 
-- can view list of upcoming bookings and cleaning schedule.
-- can assign shift to themselves if that fits to their schedule.
-- can cancel the shift before 48 hours ( in exceptional case such as sick, supervisor can cancel the shift )
-- can comment cleaning related issue, by selecting specific tag. for example if cleaning chemical finishes user selects INVENTORY TAG and add description of it. In case of lost and found they can select specific tag and add description.
+- login to the app.
+- view list of upcoming bookings and cleaning schedule.
+- assign shift to themselves if that fits to their schedule.
+- view their upcoming schedule in my schedule page.
+- cancel the shift.
+- comment cleaning related issue. eg. writ about lost and found items, broken items etc.
 
-SuperVisor
+As a SuperVisor you can
 
-- can add or cancel upcoming bookings and specific request from customer ( such as some extra beddings, towels etc.)
-- can comment back to the cleaners comment.
-- can view the booking schedule, assigned cleaning.
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- signIn to the app.
+- add information of upcoming booking date, cleaning date and its description.
+- Edit or remove bookings if needed.
+- add new employee( First Employee signUp is done only by supervisor).
+- comment back to the cleaners comment.
+- view the booking schedule, assigned cleaning.
