@@ -19,10 +19,8 @@ import Notification from "./components/Notification";
 const App = () => {
   const dispatch = useDispatch();
   const bookings = useSelector((state) => state.bookings);
-  const user = useSelector((state) => state.user);
   const notification = useSelector((state) => state.notification);
   const { message, messageType } = notification;
-  console.log("user in app", user);
 
   useEffect(() => {
     dispatch(initializeBookings());
@@ -31,11 +29,6 @@ const App = () => {
   }, [message]);
 
   const matchBooking = useMatch("/bookings/:id");
-  console.log(
-    "matchBooking",
-    matchBooking,
-    matchBooking && matchBooking.params.id === bookings[0].id
-  );
 
   const singleBooking = matchBooking
     ? bookings.find(

@@ -41,4 +41,15 @@ export const getUser = () => {
   };
 };
 
+export const signOut = () => {
+  return async (dispatch) => {
+    const loggedFlexWorkAppUserJSON = window.localStorage.getItem(
+      "loggedFlexWorkAppUser"
+    );
+    if (loggedFlexWorkAppUserJSON) {
+      window.localStorage.removeItem("loggedFlexWorkAppUser");
+      dispatch(setUser(null));
+    }
+  };
+};
 export default authenticationSlice.reducer;

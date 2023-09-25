@@ -7,17 +7,13 @@ import { readableDate } from "../../helpers/readableDate";
 import Button from "../Button";
 import NewbookingForm from "../Forms/BookingForm/NewbookingForm";
 import Modal from "../Modal";
-import Notification from "../Notification";
 
 import "./index.scss";
 
 const Bookings = () => {
   const bookings = useSelector((state) => state.bookings);
   const user = useSelector((state) => state.user);
-  const notification = useSelector((state) => state.notification);
   const [modalOpen, setModalOpen] = useState(false);
-
-  const { message, messageType } = notification;
 
   const Navigate = useNavigate();
   const handleRowClick = (id) => Navigate(`/bookings/${id}`);
@@ -52,9 +48,6 @@ const Bookings = () => {
   }
   return (
     <div className="booking-list">
-      {message && messageType && (
-        <Notification messageType={messageType} message={message} />
-      )}
       <div className="booking-list__header">
         <h1 className="employee-list__title">Booking List </h1>
         <div>
