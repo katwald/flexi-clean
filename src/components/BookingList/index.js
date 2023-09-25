@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
+import { readableDate } from "../../helpers/readableDate";
+
 import Button from "../Button";
 import NewbookingForm from "../Forms/BookingForm/NewbookingForm";
 import Modal from "../Modal";
@@ -19,20 +21,6 @@ const Bookings = () => {
 
   const Navigate = useNavigate();
   const handleRowClick = (id) => Navigate(`/bookings/${id}`);
-  const readableDate = (date) => {
-    const event = new Date(date);
-    const options = {
-      weekday: "short",
-      // year: "numeric",
-      month: "short",
-      day: "numeric",
-    };
-    const time = event.toLocaleTimeString(navigator.language, {
-      hour: "2-digit",
-      minute: "2-digit",
-    });
-    return `${event.toLocaleDateString("en-FE", options)} ${time}`;
-  };
 
   const renderBookings =
     bookings &&
