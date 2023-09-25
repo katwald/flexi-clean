@@ -20,7 +20,7 @@ import Button from "../Button";
 import "./index.scss";
 
 const SingleBooking = ({ singleBooking }) => {
-  const navigate = useNavigate();
+  const Navigate = useNavigate();
   const dispatch = useDispatch();
   const employees = useSelector((state) => state.employees);
   const user = useSelector((state) => state.user);
@@ -45,7 +45,7 @@ const SingleBooking = ({ singleBooking }) => {
         setNotification(`${venueName} info has been successfully deleted. `)
       );
       dispatch(setNotificationType("success"));
-      navigate("/");
+      Navigate("/");
     }
   };
 
@@ -185,6 +185,9 @@ const SingleBooking = ({ singleBooking }) => {
       </>
     );
   };
+  if (!user) {
+    return Navigate("/");
+  }
   return (
     <>
       <div className="booking">
