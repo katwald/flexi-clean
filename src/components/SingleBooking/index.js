@@ -16,7 +16,6 @@ import EditBookingForm from "../Forms/BookingForm/EditBookingForm";
 import CommentForm from "../Forms/CommentForm";
 import Modal from "../Modal";
 import Button from "../Button";
-import Notification from "../Notification";
 
 import "./index.scss";
 
@@ -25,13 +24,10 @@ const SingleBooking = ({ singleBooking }) => {
   const dispatch = useDispatch();
   const employees = useSelector((state) => state.employees);
   const user = useSelector((state) => state.user);
-  const notification = useSelector((state) => state.notification);
 
   const [editBookingModal, setEditBookingModal] = useState(false);
   const [booking, setBooking] = useState(null);
   const [workerModal, setWorkerModal] = useState(false);
-
-  const { message, messageType } = notification;
 
   const supervisor = user && user.user.role === "Supervisor";
 
@@ -52,6 +48,7 @@ const SingleBooking = ({ singleBooking }) => {
       navigate("/");
     }
   };
+
   const {
     bookingStart,
     bookingEnd,
@@ -61,7 +58,6 @@ const SingleBooking = ({ singleBooking }) => {
   } = singleBooking.bookingStatus;
   const { assignedCleaner } = singleBooking.cleaningStatus;
   const { comments } = singleBooking;
-
   const handleClickAssign = (booking) => {
     setBooking(booking);
     setWorkerModal(!workerModal);
@@ -192,9 +188,6 @@ const SingleBooking = ({ singleBooking }) => {
   return (
     <>
       <div className="booking">
-        {message && messageType && (
-          <Notification message={message} messageType={messageType} />
-        )}
         <div className="booking__header">
           <h1 className="booking__header__title">{singleBooking.venueName}</h1>
           <p>{singleBooking.bookingStatus.cleaningTag}</p>

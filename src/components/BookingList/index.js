@@ -28,7 +28,6 @@ const Bookings = () => {
       const { bookingStart, bookingEnd, cleaningDate } = b.bookingStatus;
       const { assignedCleaner } = b.cleaningStatus || null;
 
-      console.log(readableDate(bookingStart));
       return (
         <tr
           key={Number(b.id)}
