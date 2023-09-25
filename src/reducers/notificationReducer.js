@@ -23,7 +23,7 @@ export const setNotification = (message) => {
     await dispatch(setMessage(message));
     setTimeout(() => {
       dispatch(setMessage(null));
-    }, 5000);
+    }, 4000);
   };
 };
 

@@ -19,11 +19,28 @@ const Bookings = () => {
 
   const Navigate = useNavigate();
   const handleRowClick = (id) => Navigate(`/bookings/${id}`);
+  const readableDate = (date) => {
+    const event = new Date(date);
+    const options = {
+      weekday: "short",
+      // year: "numeric",
+      month: "short",
+      day: "numeric",
+    };
+    const time = event.toLocaleTimeString(navigator.language, {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+    return `${event.toLocaleDateString("en-FE", options)} ${time}`;
+  };
+
   const renderBookings =
     bookings &&
     bookings.map((b) => {
       const { bookingStart, bookingEnd, cleaningDate } = b.bookingStatus;
       const { assignedCleaner } = b.cleaningStatus || null;
+
+      console.log(readableDate(bookingStart));
       return (
         <tr
           key={Number(b.id)}
@@ -31,9 +48,9 @@ const Bookings = () => {
           className="booking-table-row"
         >
           <td data-label="Venue Name">{b.venueName}</td>
-          <td data-label="Check-In">{bookingStart}</td>
-          <td data-label="Checkout">{bookingEnd}</td>
-          <td data-label="Cleaning-Date">{cleaningDate}</td>
+          <td data-label="Check-In">{readableDate(bookingStart)}</td>
+          <td data-label="Checkout">{readableDate(bookingEnd)}</td>
+          <td data-label="Cleaning-Date">{readableDate(cleaningDate)}</td>
           <td data-label="Assigned Worker">
             {" "}
             <div className="employee-info">

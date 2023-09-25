@@ -3,6 +3,7 @@
 .nav-bar{
     background-color: rgb(140, 172, 172);
     padding:10px 48px;
+    display: flex;
     &__container{
         display: flex;
         flex-direction: row;
@@ -11,6 +12,14 @@
         text-decoration: none;
         width: 83%;
         margin: auto;
+    }
+    &__user-status{
+        display: flex;
+        column-gap: 12px;
+        font-size: larger;
+        font-weight: 600;
+        align-items: center;
+        color: white;
 
     }
     &__nav{
