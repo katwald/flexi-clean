@@ -13,7 +13,7 @@ import TextArea from "../../TextArea";
 
 import "./index.scss";
 
-const BookingForm = () => {
+const BookingForm = ({ setModalVisible, modalVisible }) => {
   const dispatch = useDispatch();
   const [venue, setVenue] = useState("");
   const [startDate, setStartDate] = useState("");
@@ -34,21 +34,26 @@ const BookingForm = () => {
         cleaningTag: cleaningTag,
       },
     };
-
-    dispatch(createBooking(bookingObject));
-    dispatch(
-      setNotification(
-        `${bookingObject.venueName} info has been successfully added. `
-      )
-    );
-    dispatch(setNotificationType("success"));
-    setCleaningDate("");
-    setVenue("");
-    setStartDate("");
-    setEndDate("");
-    setDescription("");
-    setCleaningDate("");
-    setCleaningTag("");
+    try {
+      dispatch(createBooking(bookingObject));
+      dispatch(
+        setNotification(
+          `${bookingObject.venueName} info has been successfully added. `
+        )
+      );
+      dispatch(setNotificationType("success"));
+      setCleaningDate("");
+      setVenue("");
+      setStartDate("");
+      setEndDate("");
+      setDescription("");
+      setCleaningDate("");
+      setCleaningTag("");
+      setModalVisible(!modalVisible);
+    } catch (error) {
+      setNotification("oops some thing went wrong !!");
+      setNotificationType("danger");
+    }
   };
   return (
     <form onSubmit={handleAddBooking}>

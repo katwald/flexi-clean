@@ -18,6 +18,8 @@ const BookingForm = ({
   _description,
   _cleaningDate,
   _booking,
+  setEditBookingModalVisible,
+  editBookingModalVisible,
 }) => {
   const dispatch = useDispatch();
   const [venue, setVenue] = useState(_venue);
@@ -47,6 +49,7 @@ const BookingForm = ({
       )
     );
     dispatch(setNotificationType("success"));
+    setEditBookingModalVisible(!editBookingModalVisible);
   };
   return (
     <form onSubmit={dispatchUpdatebooking}>

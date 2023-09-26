@@ -14,7 +14,7 @@ import Input from "../../Input";
 
 import "./index.scss";
 
-const CreateEmployeeForm = () => {
+const CreateEmployeeForm = ({ setModalVisible, modalVisible }) => {
   const dispatch = useDispatch();
 
   const firstName = useField("name");
@@ -46,6 +46,7 @@ const CreateEmployeeForm = () => {
       role.reset();
       email.reset();
       password.reset();
+      setModalVisible(!modalVisible);
     } catch (error) {
       dispatch(setNotification("oops !! some thing wen wrong"));
     }

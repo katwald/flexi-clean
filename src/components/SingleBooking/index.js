@@ -25,14 +25,14 @@ const SingleBooking = ({ singleBooking }) => {
   const employees = useSelector((state) => state.employees);
   const user = useSelector((state) => state.user);
 
-  const [editBookingModal, setEditBookingModal] = useState(false);
+  const [editBookingModalVisible, setEditBookingModalVisible] = useState(false);
   const [booking, setBooking] = useState(null);
   const [workerModal, setWorkerModal] = useState(false);
 
   const supervisor = user && user.user.role === "Supervisor";
 
   const handleEditBooking = () => {
-    setEditBookingModal(!editBookingModal);
+    setEditBookingModalVisible(!editBookingModalVisible);
   };
   const handleDeleteBooking = (bookingId, venueName) => {
     if (
@@ -266,9 +266,12 @@ const SingleBooking = ({ singleBooking }) => {
           </div>
         </div>
 
-        {editBookingModal && (
+        {editBookingModalVisible && (
           <div className="edit-form">
-            <Modal title="Edit Booking" setShowModal={setEditBookingModal}>
+            <Modal
+              title="Edit Booking"
+              setShowModal={setEditBookingModalVisible}
+            >
               <EditBookingForm
                 _booking={singleBooking}
                 _venue={singleBooking.venueName}
@@ -277,6 +280,8 @@ const SingleBooking = ({ singleBooking }) => {
                 _description={bookingDescription}
                 _cleaningDate={cleaningDate}
                 _cleaningTag={cleaningTag}
+                setEditBookingModalVisible={setEditBookingModalVisible}
+                editBookingModalVisible={editBookingModalVisible}
               />
             </Modal>
           </div>

@@ -14,7 +14,7 @@ import "./index.scss";
 const Bookings = () => {
   const bookings = useSelector((state) => state.bookings);
   const user = useSelector((state) => state.user);
-  const [modalOpen, setModalOpen] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
 
   const Navigate = useNavigate();
   const handleRowClick = (id) => Navigate(`/bookings/${id}`);
@@ -57,14 +57,21 @@ const Bookings = () => {
         <h1 className="employee-list__title">Booking List </h1>
         <div>
           {user && user.user.role === "Supervisor" && (
-            <Button primary large onClick={() => setModalOpen(!modalOpen)}>
+            <Button
+              primary
+              large
+              onClick={() => setModalVisible(!modalVisible)}
+            >
               New Booking
             </Button>
           )}
         </div>
-        {modalOpen && (
-          <Modal setShowModal={setModalOpen} title={"Add NewBooking"}>
-            <NewbookingForm />
+        {modalVisible && (
+          <Modal setShowModal={setModalVisible} title={"Add NewBooking"}>
+            <NewbookingForm
+              setModalVisible={setModalVisible}
+              modalVisible={modalVisible}
+            />
           </Modal>
         )}
       </div>

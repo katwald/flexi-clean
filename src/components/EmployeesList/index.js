@@ -25,7 +25,7 @@ const EmployeesList = () => {
   const notification = useSelector((state) => state.notification);
   const user = useSelector((state) => state.user);
 
-  const [modalOpen, setModalOpen] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
   useEffect(() => {
     dispatch(initializeEmployees());
   }, []);
@@ -67,12 +67,15 @@ const EmployeesList = () => {
   const addEmployeePopup = () => {
     return (
       <>
-        <Button primary large onClick={() => setModalOpen(!modalOpen)}>
+        <Button primary large onClick={() => setModalVisible(!modalVisible)}>
           Add
         </Button>
-        {modalOpen && (
-          <Modal setShowModal={setModalOpen} title={"Add Employee"}>
-            <CreateEmployeeForm />
+        {modalVisible && (
+          <Modal setShowModal={setModalVisible} title={"Add Employee"}>
+            <CreateEmployeeForm
+              setModalVisible={setModalVisible}
+              modalVisible={modalVisible}
+            />
           </Modal>
         )}
       </>
