@@ -1,33 +1,12 @@
 {
   "bookings": [
     {
-      "id": 4714444,
-      "venueName": "Roba Lounge Onee",
+      "venueName": "Venue1",
       "bookingStatus": {
-        "bookingStart": "2023-09-12T23:05",
-        "bookingEnd": "2023-09-06T23:05",
-        "bookingDescription": "Here comes booking details ss",
-        "cleaningDate": "2023-09-25T23:05",
-        "cleaningTag": " Weird tag"
-      },
-      "cleaningStatus": {
-        "cleanedDate": "",
-        "assignedCleaner": "Matti UUsima",
-        "cleaningStatus": "unknown",
-        "cleaningHour": 5
-      },
-      "comments": [
-        "Customer left some clothes and drinks. Items  can be found in Cleaning closet",
-        "Ok Thanks"
-      ]
-    },
-    {
-      "venueName": "RL 2",
-      "bookingStatus": {
-        "bookingDescription": "jgjhgjhg",
-        "bookingStart": "2023-09-24T10:45",
-        "bookingEnd": "2023-09-24T22:45",
-        "cleaningDate": "2023-09-25T11:45"
+        "bookingDescription": "",
+        "bookingStart": "2023-08-29T20:38",
+        "bookingEnd": "2023-09-28T20:38",
+        "cleaningDate": "2023-09-28"
       },
       "cleaningStatus": {
         "cleanedDate": "",
@@ -36,15 +15,15 @@
         "cleaningHour": 0
       },
       "comments": [],
-      "id": 4714445
+      "id": 4714458
     },
     {
-      "venueName": "asdfas",
+      "venueName": "Venue2",
       "bookingStatus": {
-        "bookingDescription": "sdafasdf",
-        "bookingStart": "2023-09-26T05:25",
-        "bookingEnd": "2023-09-26T17:25",
-        "cleaningDate": "2023-09-27T06:25"
+        "bookingDescription": "",
+        "bookingStart": "2023-09-28T19:39",
+        "bookingEnd": "2023-09-28T21:39",
+        "cleaningDate": "2023-09-28"
       },
       "cleaningStatus": {
         "cleanedDate": "",
@@ -53,7 +32,7 @@
         "cleaningHour": 0
       },
       "comments": [],
-      "id": 4714446
+      "id": 4714459
     }
   ],
   "users": [

@@ -19,7 +19,6 @@ const Bookings = () => {
   const Navigate = useNavigate();
   const handleRowClick = (id) => Navigate(`/bookings/${id}`);
 
-  console.log("unique Venue", filterUniqueVenue(bookings));
   const uniqueVenue = filterUniqueVenue(bookings);
 
   const renderBooking = (booking) => {

@@ -13,9 +13,11 @@ import TextArea from "../../TextArea";
 
 import "./index.scss";
 
+const venues = ["Venue1", "Venue2", "Venue3", "Venue4"];
+
 const BookingForm = ({ setModalVisible, modalVisible }) => {
   const dispatch = useDispatch();
-  const [venue, setVenue] = useState("");
+  const [venue, setVenue] = useState(venues[0]);
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [description, setDescription] = useState("");
@@ -24,6 +26,7 @@ const BookingForm = ({ setModalVisible, modalVisible }) => {
 
   const handleAddBooking = (e) => {
     e.preventDefault();
+
     const bookingObject = {
       venueName: venue,
       bookingStatus: {
@@ -35,21 +38,26 @@ const BookingForm = ({ setModalVisible, modalVisible }) => {
       },
     };
     try {
-      dispatch(createBooking(bookingObject));
-      dispatch(
-        setNotification(
-          `${bookingObject.venueName} info has been successfully added. `
-        )
-      );
-      dispatch(setNotificationType("success"));
-      setCleaningDate("");
-      setVenue("");
-      setStartDate("");
-      setEndDate("");
-      setDescription("");
-      setCleaningDate("");
-      setCleaningTag("");
-      setModalVisible(!modalVisible);
+      if (!startDate || !endDate || !cleaningDate) {
+        dispatch(setNotification("Date cannot be empty !!"));
+        dispatch(setNotificationType("error"));
+      } else {
+        dispatch(createBooking(bookingObject));
+        dispatch(
+          setNotification(
+            `${bookingObject.venueName} info has been successfully added. `
+          )
+        );
+        dispatch(setNotificationType("success"));
+        setCleaningDate("");
+        setVenue("");
+        setStartDate("");
+        setEndDate("");
+        setDescription("");
+        setCleaningDate("");
+        setCleaningTag("");
+        setModalVisible(!modalVisible);
+      }
     } catch (error) {
       setNotification("oops some thing went wrong !!");
       setNotificationType("danger");
@@ -58,13 +66,20 @@ const BookingForm = ({ setModalVisible, modalVisible }) => {
   return (
     <form onSubmit={handleAddBooking}>
       <div className="booking-form">
-        <div className="booking-form__input">
-          <Input
+        <div className="booking-form__select">
+          <label className="booking-form__select--label">select Venue</label>
+          <select
+            className="booking-form__select--options"
             name="venue"
-            label="Venue"
             value={venue}
             onChange={({ target }) => setVenue(target.value)}
-          />
+          >
+            {venues.map((venue) => (
+              <option key={venue} value={venue}>
+                {venue}
+              </option>
+            ))}
+          </select>
         </div>
         <div className="booking-form__input">
           <Input
@@ -88,8 +103,8 @@ const BookingForm = ({ setModalVisible, modalVisible }) => {
           <Input
             name="cleaningDate"
             label="Cleaning Date"
-            value={endDate}
-            type="datetime-local"
+            value={cleaningDate}
+            type="date"
             onChange={({ target }) => setCleaningDate(target.value)}
           />
         </div>

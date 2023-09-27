@@ -51,16 +51,26 @@ const BookingForm = ({
     dispatch(setNotificationType("success"));
     setEditBookingModalVisible(!editBookingModalVisible);
   };
+
+  const venues = ["venue1", "venue2", "venue3", "venue4"];
+
   return (
     <form onSubmit={dispatchUpdatebooking}>
       <div className="booking-form edit-form">
-        <div className="booking-form__input">
-          <Input
-            label="Venue"
+        <div className="booking-form__select">
+          <label className="booking-form__select--label">select Venue</label>
+          <select
+            className="booking-form__select--options"
             name="venue"
             value={venue}
             onChange={({ target }) => setVenue(target.value)}
-          />
+          >
+            {venues.map((venue) => (
+              <option key={venue} value={venue}>
+                {venue}
+              </option>
+            ))}
+          </select>
         </div>
         <div className="booking-form__input">
           <Input
@@ -84,8 +94,8 @@ const BookingForm = ({
           <Input
             label="CleaningDate"
             name="cleaningDate"
-            value={endDate}
-            type="datetime-local"
+            value={cleaningDate}
+            type="date"
             onChange={({ target }) => setCleaningDate(target.value)}
           />
         </div>
