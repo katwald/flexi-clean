@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { readableDate } from "../../helpers/readableDate";
@@ -9,9 +9,12 @@ import Button from "../Button";
 import NewbookingForm from "../Forms/BookingForm/NewbookingForm";
 import Modal from "../Modal";
 
+import { initializeBookings } from "../../reducers/bookingsReducers";
+
 import "./index.scss";
 
 const Bookings = () => {
+  const dispatch = useDispatch();
   const bookings = useSelector((state) => state.bookings);
   const user = useSelector((state) => state.user);
   const [modalVisible, setModalVisible] = useState(false);
@@ -20,6 +23,9 @@ const Bookings = () => {
   const handleRowClick = (id) => Navigate(`/bookings/${id}`);
 
   const uniqueVenue = filterUniqueVenue(bookings);
+  useEffect(() => {
+    dispatch(initializeBookings());
+  }, [user && user.token]);
 
   const renderBooking = (booking) => {
     if (booking) {
@@ -55,7 +61,7 @@ const Bookings = () => {
       <div className="booking-list__header">
         <h1 className="employee-list__title">Booking List </h1>
         <div>
-          {user && user.user.role === "Supervisor" && (
+          {user && user.role === "Supervisor" && (
             <Button
               primary
               large

@@ -25,11 +25,15 @@
     &__nav{
         font-weight: 700;
         font-size: large;
-        border: 2px solid white;
-        padding: 3px 24px;
         a {
+            // border: 2px solid white;
+            padding: 3px 16px;
             text-decoration: none;
             color: white;
+        }
+       a.active{
+            border-bottom: 2px solid white;
+
         }
 }
 }

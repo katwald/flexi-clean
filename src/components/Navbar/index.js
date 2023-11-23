@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import {
   setNotification,
@@ -21,32 +21,55 @@ const Navigation = () => {
     dispatch(setNotification(`${user.user.firstName} logged out.`));
     dispatch(setNotificationType("success"));
   };
-  const supervisor = user && user.user.role === "Supervisor";
+
+  const supervisor = user && user.role === "Supervisor";
   return (
     <div className="nav-bar">
       <div className="nav-bar__container">
         <div className="nav-bar__nav">
           {user ? (
-            <Link to={"/bookings"}>Bookings</Link>
+            <NavLink
+              to={"/bookings"}
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Bookings
+            </NavLink>
           ) : (
-            <Link to="/">Flexi Work</Link>
+            <NavLink
+              to="/"
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Flexi Work
+            </NavLink>
           )}
         </div>
         {user &&
           (supervisor ? (
             <div className="nav-bar__nav">
-              <Link to={"/employees"}>Employees</Link>
+              <NavLink
+                to={"/employees"}
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                Employees
+              </NavLink>
             </div>
           ) : (
             <div className="nav-bar__nav">
-              <Link to={"/my-schedule"}>MySchedule</Link>
+              <NavLink
+                to={"/my-schedule"}
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                MySchedule
+              </NavLink>
             </div>
           ))}
       </div>
 
       {user && (
         <div className="nav-bar__user-status">
-          <p>{user.user.firstName}</p>
+          <p>
+            {user.firstName} <small> as {user.role}</small>
+          </p>
 
           <Button secondary outline onClick={handleSignOut}>
             Sign Out

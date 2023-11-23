@@ -58,8 +58,16 @@ export const {
 
 export const initializeBookings = () => {
   return async (dispatch) => {
-    const bookings = await bookingServices.getAll();
-    dispatch(setBookings(bookings));
+    const loggedFlexWorkAppUserJSON = window.localStorage.getItem(
+      "loggedFlexWorkAppUser"
+    );
+    if (loggedFlexWorkAppUserJSON) {
+      const user = await JSON.parse(loggedFlexWorkAppUserJSON);
+      console.log("uuuuuusssssin booking", user.token);
+      bookingServices.setToken(user.token);
+      const bookings = await bookingServices.getAll();
+      dispatch(setBookings(bookings));
+    }
   };
 };
 

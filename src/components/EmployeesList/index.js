@@ -39,6 +39,9 @@ const EmployeesList = () => {
       dispatch(setNotificationType("success"));
     }
   };
+  if (!user && employeesList) {
+    return null;
+  }
   const renderEmployees = () =>
     user &&
     employeesList &&
@@ -82,7 +85,7 @@ const EmployeesList = () => {
     );
   };
   const { message, messageType } = notification;
-  if (!user || (user && user.user.role !== "Supervisor")) {
+  if (!user || (user && user.role !== "Supervisor")) {
     return Navigate("/");
   }
   return (

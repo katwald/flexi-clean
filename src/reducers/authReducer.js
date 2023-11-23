@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import signInServices from "../services/signIn";
+import bookingServices from "../services/bookings";
 
 const authenticationSlice = createSlice({
   name: "authentication",
@@ -26,6 +27,7 @@ export const signIn = (credentials) => {
     const user = await signInServices.signIn(credentials);
     dispatch(userSignIn(user));
     window.localStorage.setItem("loggedFlexWorkAppUser", JSON.stringify(user));
+    bookingServices.setToken(user.token);
   };
 };
 
@@ -37,6 +39,7 @@ export const getUser = () => {
     if (loggedFlexWorkAppUserJSON) {
       const user = await JSON.parse(loggedFlexWorkAppUserJSON);
       dispatch(setUser(user));
+      bookingServices.setToken(user.token);
     }
   };
 };

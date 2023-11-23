@@ -29,7 +29,7 @@ const SingleBooking = ({ singleBooking }) => {
   const [booking, setBooking] = useState(null);
   const [workerModal, setWorkerModal] = useState(false);
 
-  const supervisor = user && user.user.role === "Supervisor";
+  const supervisor = user && user.role === "Supervisor";
 
   const handleEditBooking = () => {
     setEditBookingModalVisible(!editBookingModalVisible);
@@ -123,9 +123,7 @@ const SingleBooking = ({ singleBooking }) => {
             ))
           ) : (
             <tr>
-              <td data-label="Name">
-                {`${user.user.firstName}  ${user.user.lastName}`}
-              </td>
+              <td data-label="Name">{`${user.firstName}  ${user.lastName}`}</td>
               <td>
                 <span className="employee-list__body__button">
                   <Button
@@ -133,10 +131,10 @@ const SingleBooking = ({ singleBooking }) => {
                     outline
                     small
                     onClick={() => {
-                      dispatchAssignedWorker(user.user);
+                      dispatchAssignedWorker(user);
                       dispatch(
                         setNotification(
-                          `${user.user.firstName} ${user.user.lastName}  has been successfully  Assigned. `
+                          `${user.firstName} ${user.lastName}  has been successfully  Assigned. `
                         )
                       );
                       dispatch(setNotificationType("success"));
@@ -163,11 +161,11 @@ const SingleBooking = ({ singleBooking }) => {
             onClick={() => handleClickAssign(singleBooking)}
             style={{ height: 32 }}
           >
-            Assign worker
+            {supervisor ? "Assign Worker" : "Assig me"}
           </Button>
         )}
         {assignedCleaner &&
-        (assignedCleaner === `${user.user.firstName} ${user.user.lastName}` ||
+        (assignedCleaner === `${user.firstName} ${user.lastName}` ||
           supervisor) ? (
           <>
             <span className="booking__assign-button">
@@ -249,9 +247,9 @@ const SingleBooking = ({ singleBooking }) => {
                         <BiUser size={42} />
                       </div>
                       <div>
-                        <p>Diwas</p>
+                        <p>Jan</p>
                         <p className="booking__comments__item__commented-date">
-                          12-Sep-2023
+                          02 Oct-2023
                         </p>
                       </div>
                     </div>
