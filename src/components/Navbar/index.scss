@@ -16,14 +16,14 @@
     &__user-status{
         display: flex;
         column-gap: 12px;
-        font-size: larger;
+        font-size: medium;
         font-weight: 600;
         align-items: center;
         color: white;
 
     }
     &__nav{
-        font-weight: 700;
+        font-weight: 600;
         font-size: large;
         a {
             // border: 2px solid white;

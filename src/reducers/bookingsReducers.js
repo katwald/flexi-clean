@@ -56,18 +56,22 @@ export const {
   appendComment,
 } = bookingSlice.actions;
 
+const getTokenFromLocalStorage = () => {
+  const loggedFlexWorkAppUserJSON = window.localStorage.getItem(
+    "loggedFlexWorkAppUser"
+  );
+  if (loggedFlexWorkAppUserJSON) {
+    const user = JSON.parse(loggedFlexWorkAppUserJSON);
+    return user.token;
+  }
+};
+
 export const initializeBookings = () => {
   return async (dispatch) => {
-    const loggedFlexWorkAppUserJSON = window.localStorage.getItem(
-      "loggedFlexWorkAppUser"
-    );
-    if (loggedFlexWorkAppUserJSON) {
-      const user = await JSON.parse(loggedFlexWorkAppUserJSON);
-      console.log("uuuuuusssssin booking", user.token);
-      bookingServices.setToken(user.token);
-      const bookings = await bookingServices.getAll();
-      dispatch(setBookings(bookings));
-    }
+    const token = await getTokenFromLocalStorage();
+    bookingServices.setToken(token);
+    const bookings = await bookingServices.getAll();
+    dispatch(setBookings(bookings));
   };
 };
 
@@ -86,24 +90,32 @@ export const createBooking = (bookinObject) => {
     },
   };
   return async (dispatch) => {
+    const token = await getTokenFromLocalStorage();
+    bookingServices.setToken(token);
     const response = await bookingServices.createNew(newObj);
     dispatch(appendBooking(response));
   };
 };
 export const updateBooking = (bookingId, updatedObj) => {
   return async (dispatch) => {
+    const token = await getTokenFromLocalStorage();
+    bookingServices.setToken(token);
     const response = await bookingServices.update(bookingId, updatedObj);
     dispatch(modifyBooking(response));
   };
 };
 export const removeBooking = (bookingId) => {
   return async (dispatch) => {
+    const token = await getTokenFromLocalStorage();
+    bookingServices.setToken(token);
     await bookingServices.remove(bookingId);
     dispatch(deleteBooking(bookingId));
   };
 };
 export const addComment = (bookingId, commentObj) => {
   return async (dispatch) => {
+    const token = await getTokenFromLocalStorage();
+    bookingServices.setToken(token);
     // Api request should be changed to create, when it will be integreted with backend api.
     const response = await bookingServices.update(bookingId, commentObj);
     dispatch(appendComment(response));

@@ -58,6 +58,7 @@ const SingleBooking = ({ singleBooking }) => {
   } = singleBooking.bookingStatus;
   const { assignedCleaner } = singleBooking.cleaningStatus;
   const { comments } = singleBooking;
+  console.log("comments", comments);
   const handleClickAssign = (booking) => {
     setBooking(booking);
     setWorkerModal(!workerModal);
@@ -186,12 +187,13 @@ const SingleBooking = ({ singleBooking }) => {
   if (!user) {
     return Navigate("/");
   }
+  console.log("songlebooking", singleBooking);
   return (
     <>
       <div className="booking">
         <div className="booking__header">
           <h1 className="booking__header__title">{singleBooking.venueName}</h1>
-          <p>{singleBooking.bookingStatus.cleaningTag}</p>
+          <p>{cleaningTag}</p>
           <div className="booking__header__assignment">
             {renderWorkerAssignment()}
           </div>
@@ -240,7 +242,7 @@ const SingleBooking = ({ singleBooking }) => {
             <h3>comments</h3>
             <ul>
               {singleBooking &&
-                comments.map((comment) => (
+                comments.map(({ comment }) => (
                   <li className={"booking__comments__item"} key={comment}>
                     <div className="booking__comments__item__commented-by">
                       <div className="booking__comments__item__commented-by--icons">

@@ -34,7 +34,7 @@ const Bookings = () => {
 
       return (
         <tr
-          key={Number(booking.id)}
+          key={booking.id}
           onClick={() => handleRowClick(booking.id)}
           className="booking-table-row"
         >
@@ -81,7 +81,7 @@ const Bookings = () => {
         )}
       </div>
       {uniqueVenue.map((uv) => (
-        <table key={uv}>
+        <table key={uniqueVenue.id}>
           <caption>{uv}</caption>
           <thead>
             <tr>

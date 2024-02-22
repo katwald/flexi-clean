@@ -31,9 +31,7 @@ const App = () => {
   const matchBooking = useMatch("/bookings/:id");
 
   const singleBooking = matchBooking
-    ? bookings.find(
-        (booking) => Number(booking.id) === Number(matchBooking.params.id)
-      )
+    ? bookings.find((booking) => booking.id === matchBooking.params.id)
     : null;
 
   return (
