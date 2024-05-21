@@ -15,10 +15,7 @@ const MySchedule = () => {
     bookings
       .filter((booking) => {
         const { assignedCleaner } = booking.cleaningStatus || null;
-        if (
-          user &&
-          `${user.user.firstName} ${user.user.lastName}` === assignedCleaner
-        ) {
+        if (user && `${user.firstName} ${user.lastName}` === assignedCleaner) {
           return booking;
         }
       })

@@ -43,6 +43,14 @@ const Navigation = () => {
             </NavLink>
           )}
         </div>
+        <div className="nav-bar__nav">
+          <NavLink
+            to={"/my-schedule"}
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            MySchedule
+          </NavLink>
+        </div>
         {user &&
           (supervisor ? (
             <div className="nav-bar__nav">
@@ -53,16 +61,7 @@ const Navigation = () => {
                 Employees
               </NavLink>
             </div>
-          ) : (
-            <div className="nav-bar__nav">
-              <NavLink
-                to={"/my-schedule"}
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                MySchedule
-              </NavLink>
-            </div>
-          ))}
+          ) : null)}
       </div>
 
       {user && (
@@ -71,7 +70,7 @@ const Navigation = () => {
             {user.firstName} <small> as {user.role}</small>
           </p>
 
-          <Button secondary outline onClick={handleSignOut}>
+          <Button secondary outline small onClick={handleSignOut}>
             Sign Out
           </Button>
         </div>

@@ -1,85 +1,82 @@
 @import "../../styles/_variables";
 
-.booking{
-margin: 2%;
-padding:24px 42px ;
-width: 60%;
-border-radius: 8px;
-box-shadow: 0.5px 0px 5px $light-gray;
-margin: 2% auto;
-&__header{
-    display:flex;
+.booking {
+  margin: 2%;
+  padding: 24px 42px;
+  width: 60%;
+  border-radius: 8px;
+  box-shadow: 0.5px 0px 5px $light-gray;
+  margin: 2% auto;
+  &__header {
+    display: flex;
     flex-wrap: wrap;
     font-size: 16px;
     align-items: center;
-    gap:8%;
-    padding:12px 0;
-border-bottom: 1px solid rgb(212, 211, 211);
-&__title{
-    font-size: 24px;
-}
-}
-&__assigned-to{
+    gap: 8%;
+    padding: 12px 0;
+    border-bottom: 1px solid rgb(212, 211, 211);
+    &__title {
+      font-size: 24px;
+    }
+  }
+  &__assigned-to {
     margin-right: 5px;
-}
+  }
 
-&__content{
-    display:flex;
-    padding: 12px 0; ;
+  &__content {
+    display: flex;
+    padding: 12px 0;
     font-size: 18px;
     line-height: 2;
-    &__modify{
-        display:flex;
-        align-items: start;
+    &__modify {
+      display: flex;
+      align-items: flex-start;
     }
 
-    &__cleaning-date-title,&__checkin--date-title, &__checkout-date-title, &__description-title{
-        font-size: 16px;
-        font-weight: 600;
-
+    &__cleaning-date-title,
+    &__checkin--date-title,
+    &__checkout-date-title,
+    &__description-title {
+      font-size: 16px;
+      font-weight: 600;
     }
-    &__description-title{
-        width: 40vw;
+    &__description-title {
+      width: 40vw;
     }
-    &__cleaning-date, &__checkin-date, &__checkout-date, &__description{
-        color: $light-gray;
-        font-size: 14px;
-
+    &__cleaning-date,
+    &__checkin-date,
+    &__checkout-date,
+    &__description {
+      color: $light-gray;
+      font-size: 14px;
     }
-}
-&__comments{
+  }
+  &__comments {
     margin: 12px 0;
     padding: 12px 0;
     border-top: 1px solid rgb(212, 211, 211);
-    &__item{
-        list-style: none;
-        padding: 8px 0;
-        &__commented-date{
-            color: $light-gray;
-            font-size: small;
+    &__item {
+      list-style: none;
+      padding: 8px 0;
+      &__commented-date {
+        color: $light-gray;
+        font-size: small;
+      }
+      &__commented-by {
+        display: flex;
+        gap: 3%;
+        font-weight: 600;
+        padding: 5px 0;
+        &--icons {
+          border-radius: 5px;
+          border: 2px solid gray;
+          background-color: $light-gray;
+          margin: 12px 0px;
         }
-        &__commented-by{
-            display:flex;
-            gap:3%;
-            font-weight: 600;
-            padding: 5px 0;
-            &--icons{
-                border-radius: 5px;
-                border: 2px solid gray;
-                background-color:$light-gray;
-                margin: 12px 0px;
-
-
-            }
-        }
-        &__text{
-            font-size: 14px;
-
-        }
+      }
+      &__text {
+        font-size: 14px;
+      }
     }
-
+  }
 }
-
-}
-
-
