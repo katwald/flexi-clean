@@ -1,10 +1,10 @@
 @import "../../styles/_variables";
 
 .booking {
-  margin: 2%;
-  padding: 24px 42px;
-  width: 60%;
-  border-radius: 8px;
+  padding: 1.5rem;
+  min-width: 60vw;
+  max-width: 95vw;
+  border-radius: 0.5rem;
   box-shadow: 0.5px 0px 5px $light-gray;
   margin: 2% auto;
   &__header {
@@ -13,20 +13,20 @@
     font-size: 16px;
     align-items: center;
     gap: 8%;
-    padding: 12px 0;
+    padding: 0.8rem 0;
     border-bottom: 1px solid rgb(212, 211, 211);
     &__title {
-      font-size: 24px;
+      font-size: 1.5rem;
     }
   }
   &__assigned-to {
-    margin-right: 5px;
+    margin-right: 0.5rem;
   }
 
   &__content {
     display: flex;
-    padding: 12px 0;
-    font-size: 18px;
+    padding: 0.8rem 0;
+    font-size: 1rem;
     line-height: 2;
     &__modify {
       display: flex;
@@ -37,7 +37,7 @@
     &__checkin--date-title,
     &__checkout-date-title,
     &__description-title {
-      font-size: 16px;
+      font-size: 1.2rem;
       font-weight: 600;
     }
     &__description-title {
@@ -48,34 +48,34 @@
     &__checkout-date,
     &__description {
       color: $light-gray;
-      font-size: 14px;
+      font-size: 0.9rem;
     }
   }
   &__comments {
-    margin: 12px 0;
-    padding: 12px 0;
+    margin: 0.8rem 0;
+    padding: 1.1rem 0;
     border-top: 1px solid rgb(212, 211, 211);
     &__item {
       list-style: none;
-      padding: 8px 0;
+      padding: 0.8rem 0;
       &__commented-date {
         color: $light-gray;
-        font-size: small;
+        font-size: 1.1rem;
       }
       &__commented-by {
         display: flex;
         gap: 3%;
         font-weight: 600;
-        padding: 5px 0;
+        padding: 0.25rem 0;
         &--icons {
           border-radius: 5px;
           border: 2px solid gray;
           background-color: $light-gray;
-          margin: 12px 0px;
+          margin: 1.1rem 0rem;
         }
       }
       &__text {
-        font-size: 14px;
+        font-size: 1.2rem;
       }
     }
   }

@@ -1,81 +1,74 @@
 @import "../../styles/_variables";
 
-
-.btn{
-    display:block;
-    min-width: 80px;
-    height: 40px;
-    padding: 8px 12px;
-    border-radius: 2px;
-    font-size :16px;
-    font-weight: 600;
-    text-align: center;
-    &:hover {
+.btn {
+  display: block;
+  min-width: 5.5rem;
+  height: 2.5rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  &:hover {
     cursor: pointer;
-    filter: brightness(0.90);
-    }
+    filter: brightness(0.9);
+  }
 
-    &__primary{
-        border:1px solid $primary;
-        background-color: $primary;
-        color:white;
+  &__primary {
+    border: 1px solid $primary;
+    background-color: $primary;
+    color: white;
+  }
+  &__secondary {
+    background-color: $light;
+    border: 1px solid $primary;
+    color: $dark;
+  }
+  &__warning {
+    background-color: $warning;
+    color: white;
+    border: 1px solid rgba(255, 166, 0, 0.957);
+  }
+  &__danger {
+    background-color: $danger;
+    border: 1px solid $danger;
+    color: white;
+  }
+  &__outline {
+    background-color: $light;
+    border: 1px solid $light-gray;
+    &--primary {
+      border: 1px solid $primary;
+      background-color: $light;
+      color: $primary;
+    }
+    // outlined buttons
+    &--warning {
+      background-color: $light;
+      color: $warning;
+      border: 1px solid $warning;
+    }
+    &--danger {
+      background-color: $light;
+      border: 1px solid $danger;
+      color: $danger;
+    }
+  }
 
-
-    }
-    &__secondary{
-        background-color: $light;
-        border: 1px solid $primary;
-        color: $dark;
-
-    }
-    &__warning{
-        background-color: $warning;
-        color:white;
-        border: 1px solid  rgba(255, 166, 0, 0.957);
-    }
-    &__danger{
-        background-color: $danger;
-        border: 1px solid $danger;
-        color:white;
-    }
-    &__outline{
-        background-color: $light;
-        border: 1px solid $light-gray;
-        &--primary{
-            border: 1px solid $primary;
-            background-color: $light;
-            color: $primary;
-        }
-        // outlined buttons
-        &--warning{
-            background-color: $light;
-            color:$warning;
-            border: 1px solid  $warning
-        }
-        &--danger{
-             background-color: $light;
-            border: 1px solid $danger;
-            color:$danger;
-        }
-    }
-
-
-    &--small{
-        font-size: small;
-        padding: 2px 2px;
-        height: 25px;
-        min-width: 48px;
-        max-width: 80px;;
-    }
-    &--medium{
-        font-size: medium;
-        padding: 2px 4px;
-        width: 64px;
-        height: 35px;
-    }
-    &--large{
-        font-size: larger;
-        padding:10px 26px;
-    }
-
+  //   &--small {
+  //     font-size: 0.6rem;
+  //     height: 1.8rem;
+  //     min-width: 2.8rem;
+  //     max-width: 6rem;
+  //     text-align: center;
+  //   }
+  //   &--medium {
+  //     font-size: 1rem;
+  //     padding: 2px 4px;
+  //     width: 64px;
+  //     height: 35px;
+  //   }
+  //   &--large {
+  //     font-size: 1.5rem;
+  //   }
 }
