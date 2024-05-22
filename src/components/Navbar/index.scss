@@ -1,7 +1,10 @@
+@import "../../styles/_variables";
+
 .nav-bar {
-  background-color: rgb(140, 172, 172);
-  padding: 10px 48px;
-  display: flex;
+  background-color: $primary;
+  padding: 15px 48px;
+  width: 100%;
+  z-index: 100;
   &__container {
     display: flex;
     flex-direction: row;
@@ -13,24 +16,72 @@
   }
   &__user-status {
     display: flex;
-    width: 25%;
+    width: 80%;
     column-gap: 20px;
     font-size: small;
     font-weight: 500;
     align-items: center;
     color: white;
+    justify-content: flex-end;
   }
   &__nav {
     font-weight: 600;
     font-size: medium;
-    a {
-      // border: 2px solid white;
+    &__link {
       padding: 3px 16px;
       text-decoration: none;
       color: white;
+      transition: color 0.4s;
+      &__active {
+        border-bottom: 2px solid white;
+        color: white;
+      }
     }
-    a.active {
-      border-bottom: 2px solid white;
+  }
+  &__close,
+  &__toggle {
+    font-size: 2rem;
+    color: $primary;
+    cursor: pointer;
+  }
+  &__close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    color: white;
+    z-index: 1;
+  }
+}
+@media screen and (max-width: 1150px) {
+  .nav-bar {
+    background-color: unset;
+    &__container {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      background-color: $primary;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      width: 80%;
+      height: 100%;
+      padding: 6rem 3rem 0;
+      transition: right 0.4s;
+      flex-direction: column;
+    }
+    &__user-status {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    &__show-menu {
+      right: 0;
+    }
+  }
+}
+@media screen and (min-width: 1150px) {
+  .mobile-nav {
+    &__toggle,
+    &__close {
+      display: none;
     }
   }
 }
