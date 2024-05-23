@@ -14,6 +14,7 @@ import Bookings from "./components/BookingList";
 import BookingForm from "./components/Forms/BookingForm/NewbookingForm";
 import SingleBooking from "./components/SingleBooking";
 import SignInForm from "./components/Forms/SignInForm";
+import SignUpForm from "./components/Forms/SignUpForm";
 import Notification from "./components/Notification";
 
 const App = () => {
@@ -51,6 +52,7 @@ const App = () => {
         <Route path="/bookings" element={<Bookings />} />
 
         <Route path="/" element={<SignInForm />} />
+        <Route path="/sign-up" element={<SignUpForm />} />
       </Routes>
     </div>
   );
