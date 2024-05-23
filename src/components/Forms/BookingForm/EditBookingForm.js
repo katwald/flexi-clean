@@ -52,7 +52,12 @@ const BookingForm = ({
     setEditBookingModalVisible(!editBookingModalVisible);
   };
 
-  const venues = ["venue1", "venue2", "venue3", "venue4"];
+  const venues = [
+    "Roba Lounge",
+    "Roba Lounge II",
+    "Hiisi Resort",
+    "Villa Björkbacken",
+  ];
 
   return (
     <form onSubmit={dispatchUpdatebooking}>
