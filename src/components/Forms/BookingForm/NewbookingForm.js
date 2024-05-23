@@ -13,7 +13,12 @@ import TextArea from "../../TextArea";
 
 import "./index.scss";
 
-const venues = ["Venue1", "Venue2", "Venue3", "Venue4"];
+const venues = [
+  "Roba Lounge",
+  "Roba Lounge II",
+  "Hiisi Resort",
+  "Villa Björkbacken",
+];
 
 const BookingForm = ({ setModalVisible, modalVisible }) => {
   const dispatch = useDispatch();
