@@ -6,6 +6,7 @@ import {
   setNotification,
   setNotificationType,
 } from "../../../reducers/notificationReducer";
+// import { dateTimeLocalFormat } from "../../../helpers/dateTimeLocalFormatter";
 
 import Button from "../.././Button";
 import Input from "../../Input";
@@ -23,10 +24,12 @@ const BookingForm = ({
 }) => {
   const dispatch = useDispatch();
   const [venue, setVenue] = useState(_venue);
-  const [startDate, setStartDate] = useState(_startDate);
-  const [endDate, setEndDate] = useState(_endDate);
+  const [startDate, setStartDate] = useState(_startDate.substring(0, 16));
+  const [endDate, setEndDate] = useState(_endDate.substring(0, 16));
   const [description, setDescription] = useState(_description);
-  const [cleaningDate, setCleaningDate] = useState(_cleaningDate);
+  const [cleaningDate, setCleaningDate] = useState(
+    _cleaningDate.substring(0, 16)
+  );
   // const [cleaningTag, setCleaningTag] = useState(_cleaningDate);
 
   const dispatchUpdatebooking = (e) => {
@@ -50,6 +53,7 @@ const BookingForm = ({
     );
     dispatch(setNotificationType("success"));
     setEditBookingModalVisible(!editBookingModalVisible);
+    console.log("updatedObj", updatedBookingObj);
   };
 
   const venues = [
@@ -58,7 +62,6 @@ const BookingForm = ({
     "Hiisi Resort",
     "Villa Björkbacken",
   ];
-
   return (
     <form onSubmit={dispatchUpdatebooking}>
       <div className="booking-form edit-form">
@@ -100,7 +103,8 @@ const BookingForm = ({
             label="CleaningDate"
             name="cleaningDate"
             value={cleaningDate}
-            type="date"
+            type="datetime-local"
+            min="4:00"
             onChange={({ target }) => setCleaningDate(target.value)}
           />
         </div>
@@ -115,7 +119,6 @@ const BookingForm = ({
             onChange={({ target }) => setDescription(target.value)}
           />
         </div>
-
         {/* <TextArea
           name="cleaningTag"
           value={description}

@@ -58,7 +58,6 @@ const SingleBooking = ({ singleBooking }) => {
   } = singleBooking.bookingStatus;
   const { assignedCleaner } = singleBooking.cleaningStatus;
   const { comments } = singleBooking;
-  console.log("comments", comments);
   const handleClickAssign = (booking) => {
     setBooking(booking);
     setWorkerModal(!workerModal);
@@ -187,7 +186,6 @@ const SingleBooking = ({ singleBooking }) => {
   if (!user) {
     return Navigate("/");
   }
-  console.log("songlebooking", singleBooking);
   return (
     <>
       <div className="booking">

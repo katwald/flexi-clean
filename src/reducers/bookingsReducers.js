@@ -100,7 +100,9 @@ export const updateBooking = (bookingId, updatedObj) => {
   return async (dispatch) => {
     const token = await getTokenFromLocalStorage();
     bookingServices.setToken(token);
+    console.log("bookingId...", updatedObj);
     const response = await bookingServices.update(bookingId, updatedObj);
+    console.log("response....", response);
     dispatch(modifyBooking(response));
   };
 };

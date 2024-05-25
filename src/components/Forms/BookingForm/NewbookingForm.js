@@ -6,7 +6,7 @@ import {
   setNotification,
   setNotificationType,
 } from "../../../reducers/notificationReducer";
-
+import { dateTimeLocalFormat } from "../../../helpers/dateTimeLocalFormatter";
 import Button from "../../Button";
 import Input from "../../Input";
 import TextArea from "../../TextArea";
@@ -23,7 +23,7 @@ const venues = [
 const BookingForm = ({ setModalVisible, modalVisible }) => {
   const dispatch = useDispatch();
   const [venue, setVenue] = useState(venues[0]);
-  const [startDate, setStartDate] = useState("");
+  const [startDate, setStartDate] = useState(dateTimeLocalFormat(new Date()));
   const [endDate, setEndDate] = useState("");
   const [description, setDescription] = useState("");
   const [cleaningDate, setCleaningDate] = useState("");
@@ -68,6 +68,13 @@ const BookingForm = ({ setModalVisible, modalVisible }) => {
       setNotificationType("danger");
     }
   };
+  console.log(
+    "SSStart date",
+    startDate,
+    "type off _start ",
+    "type start",
+    typeof startDate
+  );
   return (
     <form onSubmit={handleAddBooking}>
       <div className="booking-form">

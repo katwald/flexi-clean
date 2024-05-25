@@ -109,7 +109,6 @@ const Navigation = () => {
       </>
     );
   };
-  console.log("ismobiel", isMobile, "ismunuopen", isMenuOpen);
   return (
     <div className="nav-bar">
       {isMobile && (

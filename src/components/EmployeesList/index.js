@@ -29,7 +29,6 @@ const EmployeesList = () => {
   useEffect(() => {
     dispatch(initializeEmployees());
   }, [user, user.c]);
-  console.log("employeeslist", employeesList);
   const handleDeleteEmployee = (id, name) => {
     if (
       window.confirm(`Are you sure you want delete  ${name}  employee List ? `)
