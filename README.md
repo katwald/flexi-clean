@@ -1,18 +1,37 @@
 ## Available Scripts
 
-In the project directory:
+[Live URL](https://flexi-clean-api.onrender.com/)
+
+In order to run this app in your local environment.You will also need an API in order to authenticate and navigate this app. For that you will need to clone
+[this api](https://github.com/katwald/flexi-clean-API)
+Front End local run
 
     npm install    // installs all the needed library.
-    npm run server // starts json-server as well as json-auth-server.
     npm start     // Runs the app in development mode.
 
-    First Login as admin using below credential.
+    API local run
+    $ npm install
 
-        email: devendra.katwal@gmail.com
-        pass:  devendra
+EITHER
+goto front end app and change base url paths from relative to absolute paths eg: http://localhost:3001/login
 
-    After logged in as admin/supervisor you can add new employee by pressing Add New button and  filling up the signUp form.
-    in order to see employee level functionality you need to  signIn  as employee using credentials you recently added.f
+OR
+
+simply run
+
+    $ npm run build:ui
+
+In the browser go to
+
+    http://localhost:3001/
+
+First Login as admin using below credential.
+
+        email: katwaldevendra1@gmail.com
+        temporary password :  devendra
+
+After logged in as admin/supervisor you can add new employee by pressing Add New button and filling up the signUp form.
+in order to see employee level functionality you need to signIn as employee using credentials you recently added.f
 
 # FlexiClean app
 
