@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { IoClose, IoMenu } from "react-icons/io5";
 
 import {
@@ -15,6 +15,7 @@ import Button from "../Button";
 import "./index.scss";
 
 const Navigation = () => {
+  const Navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,6 +35,9 @@ const Navigation = () => {
     dispatch(signOut());
     dispatch(setNotification(`${user.user.firstName} logged out.`));
     dispatch(setNotificationType("success"));
+    if (user) {
+      return Navigate("/");
+    }
   };
 
   const supervisor = user && user.role === "Supervisor";

@@ -65,10 +65,7 @@ const MySchedule = () => {
           <tbody>{renderBookings}</tbody>
         </table>
       ) : (
-        <p className="booking-list__no-bookings">
-          {" "}
-          No tasked assigned. you can assign task from from bookings page !
-        </p>
+        <p className="booking-list__no-bookings"> No tasks assigned yet !</p>
       )}
     </div>
   );

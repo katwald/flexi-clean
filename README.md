@@ -60,7 +60,4 @@ As a SuperVisor you can
 
 TODO
 
-- when user get removed, all the assigned task should be empty
-- Responsive Navigation bar
-- Add Card component in the booking list instead fo table.
-- Wrong credentials notifies user login successful but in reality it does not.
+[reference](https://fullstackopen.com/en/)

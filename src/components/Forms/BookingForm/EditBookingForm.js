@@ -8,7 +8,7 @@ import {
 } from "../../../reducers/notificationReducer";
 // import { dateTimeLocalFormat } from "../../../helpers/dateTimeLocalFormatter";
 
-import Button from "../.././Button";
+import Button from "../../Button";
 import Input from "../../Input";
 import TextArea from "../../TextArea";
 

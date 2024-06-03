@@ -1,0 +1,69 @@
+@import "../../../styles/_variables";
+
+.card {
+  width: 98vw;
+  max-width: 800px;
+  border: 1px solid rgb(194, 193, 193);
+  padding: 8px;
+  border-radius: 5px;
+  margin: 1.2rem 0;
+  box-shadow: 2px 2px 8px rgb(232, 232, 232);
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px;
+    border-bottom: 1px solid $light-gray;
+    &__title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      padding: 2px;
+      align-self: center;
+    }
+    &__sub-title {
+      font-size: 0.8rem;
+      color: $light-gray;
+    }
+    &__avatar {
+      text-align: center;
+      padding: 0.5rem;
+    }
+  }
+  &__body {
+    padding: 12px 0;
+    height: 40%;
+    // overflow: hidden;
+    font-size: 1rem;
+    &__truncate {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 1rem;
+    &__chip {
+      padding: 0.5rem;
+      width: max-content;
+      border: 1px solid black;
+      border-radius: 0.3rem;
+      text-align: center;
+
+      &__warning {
+        background: rgb(235, 106, 0);
+        color: white;
+        border: none;
+      }
+      &__danger {
+        background-color: red;
+        color: white;
+        border: none;
+      }
+    }
+    &__avatar {
+      stroke-width: 0.2rem;
+      font-size: 1.5rem;
+    }
+  }
+}
