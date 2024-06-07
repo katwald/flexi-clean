@@ -19,20 +19,26 @@ const Card = ({
         <div>
           <h3 className="card__header__title">{title}</h3>
           <div className="card__header__sub-title">
-            {readableDate(bookingStart)}
-          </div>
-          <div className="card__header__sub-title">
-            {readableDate(bookingEnd)}
+            <div className="card__header__sub-title__date">
+              {readableDate(bookingStart)}
+            </div>
+            <div className="card__header__sub-title__date">
+              {readableDate(bookingEnd)}
+            </div>
           </div>
         </div>
-        {assignedEmployee && (
-          <div className="card__header__avatar">
-            <div className="card__header__avatar__icon">
-              <HiOutlineUserCircle />
-            </div>
-            <div className="card__header__avatar__name">{assignedEmployee}</div>
-          </div>
-        )}
+        <div className="card__header__avatar">
+          {assignedEmployee && (
+            <>
+              <div className="card__header__avatar__icon">
+                <HiOutlineUserCircle />
+              </div>
+              <div className="card__header__avatar__name">
+                {assignedEmployee}
+              </div>
+            </>
+          )}
+        </div>
       </div>
       <div className="card__body">
         <div className="card__body__truncate">{bookingDescription}</div>
