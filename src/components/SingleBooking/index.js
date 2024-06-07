@@ -191,7 +191,6 @@ const SingleBooking = ({ singleBooking }) => {
       <div className="booking">
         <div className="booking__header">
           <h1 className="booking__header__title">{singleBooking.venueName}</h1>
-          <p>{cleaningTag}</p>
           <div className="booking__header__assignment">
             {renderWorkerAssignment()}
           </div>
@@ -209,8 +208,12 @@ const SingleBooking = ({ singleBooking }) => {
             <h3 className="booking__content__cleaning-date-title">
               Cleaning Date
             </h3>
-            <p className="booking__content__cleaning-date">
-              {readableDate(cleaningDate)}
+            <p
+              className={`booking__content__cleaning-tag booking__content__cleaning-tag__${
+                cleaningTag && cleaningTag.toLowerCase()
+              }`}
+            >
+              {cleaningTag || "Normal"}
             </p>
             <h3 className="booking__content__description-title">Description</h3>
             <p className="booking__content__description">

@@ -50,6 +50,24 @@
       color: $light-gray;
       font-size: 0.9rem;
     }
+    &__cleaning-tag {
+      padding: 0.5rem;
+      width: max-content;
+      border: 1px solid black;
+      border-radius: 0.3rem;
+      text-align: center;
+
+      &__early-morning {
+        background: rgb(247, 211, 11);
+        color: white;
+        border: none;
+      }
+      &__quick {
+        background-color: red;
+        color: white;
+        border: none;
+      }
+    }
   }
   &__comments {
     margin: 0.8rem 0;

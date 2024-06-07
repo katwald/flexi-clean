@@ -32,8 +32,13 @@ const Bookings = () => {
   }
   const renderBooking = (booking) => {
     if (booking) {
-      const { bookingStart, bookingEnd, bookingDescription, cleaningDate } =
-        booking.bookingStatus;
+      const {
+        bookingStart,
+        bookingEnd,
+        bookingDescription,
+        cleaningDate,
+        cleaningTag,
+      } = booking.bookingStatus;
       const { assignedCleaner } = booking.cleaningStatus || null;
 
       return (
@@ -45,7 +50,7 @@ const Bookings = () => {
           assignedEmployee={assignedCleaner}
           cleaningDate={cleaningDate}
           title={booking.venueName}
-          tag={"Normal"}
+          tag={cleaningTag || "Normal"}
           onClick={() => handleRowClick(booking.id)}
         />
       );

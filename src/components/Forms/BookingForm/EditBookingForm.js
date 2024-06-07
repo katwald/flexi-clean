@@ -30,7 +30,7 @@ const BookingForm = ({
   const [cleaningDate, setCleaningDate] = useState(
     _cleaningDate.substring(0, 16)
   );
-  // const [cleaningTag, setCleaningTag] = useState(_cleaningDate);
+  const [cleaningTag, setCleaningTag] = useState(_cleaningDate);
 
   const dispatchUpdatebooking = (e) => {
     e.preventDefault();
@@ -43,6 +43,7 @@ const BookingForm = ({
         cleaningDate: cleaningDate,
         bookingStart: startDate,
         bookingEnd: endDate,
+        cleaningTag: cleaningTag,
       },
     };
     dispatch(updateBooking(_booking.id, updatedBookingObj));
@@ -62,6 +63,8 @@ const BookingForm = ({
     "Hiisi Resort",
     "Villa Björkbacken",
   ];
+  const tags = ["Normal ", "Quick ", "Early-morning"];
+
   return (
     <form onSubmit={dispatchUpdatebooking}>
       <div className="booking-form edit-form">
@@ -108,6 +111,18 @@ const BookingForm = ({
             onChange={({ target }) => setCleaningDate(target.value)}
           />
         </div>
+        <select
+          className="booking-form__select--options"
+          name="Tag"
+          value={cleaningTag}
+          onChange={({ target }) => setCleaningTag(target.value)}
+        >
+          {tags.map((tag) => (
+            <option key={tag} value={tag}>
+              {tag}
+            </option>
+          ))}
+        </select>
         <div className="booking-form__text-area">
           <TextArea
             label="Description"

@@ -12,7 +12,6 @@ const Card = ({
   bookingDescription,
   assignedEmployee,
 }) => {
-  console.log("readable Date", bookingStart, "bd", bookingDescription);
   return (
     <div className="card">
       <div className="card__header">
@@ -46,7 +45,7 @@ const Card = ({
       <div className="card__footer">
         <div
           className={`card__footer__chip card__footer__chip__${
-            tag && tag.toLocaleLowerCase()
+            tag && tag.toLowerCase()
           }`}
         >
           {tag}

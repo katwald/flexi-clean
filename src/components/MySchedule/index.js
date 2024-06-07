@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 import { readableDate } from "../../helpers/readableDate";
 
+import "./style.scss";
+
 const MySchedule = () => {
   const bookings = useSelector((state) => state.bookings);
   const user = useSelector((state) => state.user);

@@ -20,6 +20,8 @@ const venues = [
   "Villa Björkbacken",
 ];
 
+const tags = ["Normal ", "Quick ", "Early-morning"];
+
 const BookingForm = ({ setModalVisible, modalVisible }) => {
   const dispatch = useDispatch();
   const [venue, setVenue] = useState(venues[0]);
@@ -68,13 +70,6 @@ const BookingForm = ({ setModalVisible, modalVisible }) => {
       setNotificationType("danger");
     }
   };
-  console.log(
-    "SSStart date",
-    startDate,
-    "type off _start ",
-    "type start",
-    typeof startDate
-  );
   return (
     <form onSubmit={handleAddBooking}>
       <div className="booking-form">
@@ -120,6 +115,23 @@ const BookingForm = ({ setModalVisible, modalVisible }) => {
             onChange={({ target }) => setCleaningDate(target.value)}
           />
         </div>
+        <div className="booking-form__select">
+          <label className="booking-form__select--label">
+            Select Cleaning Tag
+          </label>
+          <select
+            className="booking-form__select--options"
+            name="Tag"
+            value={cleaningTag}
+            onChange={({ target }) => setCleaningTag(target.value)}
+          >
+            {tags.map((tag) => (
+              <option key={tag} value={tag}>
+                {tag}
+              </option>
+            ))}
+          </select>
+        </div>
         <div className="booking-form__text-area">
           <TextArea
             label="Description"
@@ -131,17 +143,6 @@ const BookingForm = ({ setModalVisible, modalVisible }) => {
             onChange={({ target }) => setDescription(target.value)}
           />
         </div>
-        {/* <div>
-          <TextArea
-            name="cleaning-tag"
-            label="Description"
-            value={cleaningTag}
-            rows="4"
-            cols="30"
-            type="text"
-            onChange={({ target }) => setCleaningTag(target.value)}
-          />
-        </div> */}
         <div className="booking-form__button">
           <Button primary type="submit">
             Submit
