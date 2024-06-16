@@ -10,9 +10,10 @@ import { getUser } from "./reducers/authReducer";
 import Navigation from "./components/Navbar";
 import MySchedule from "./components/MySchedule";
 import EmployeesList from "./components/EmployeesList";
-import Bookings from "./components/BookingList";
+import Bookings from "./components/BookingListPage";
 import BookingForm from "./components/Forms/BookingForm/NewbookingForm";
-import SingleBooking from "./components/SingleBooking";
+import SingleBookingPage from "./components/SingleBookingPage";
+import TimeSheetPage from "./components/TimeSheetPage";
 import SignInForm from "./components/Forms/SignInForm";
 import SignUpForm from "./components/Forms/SignUpForm";
 import Notification from "./components/Notification";
@@ -47,10 +48,10 @@ const App = () => {
         <Route path="/create-booking" element={<BookingForm />} />
         <Route
           path="/bookings/:id"
-          element={<SingleBooking singleBooking={singleBooking} />}
+          element={<SingleBookingPage singleBooking={singleBooking} />}
         />
         <Route path="/bookings" element={<Bookings />} />
-
+        <Route path="/time-sheet" element={<TimeSheetPage />} />
         <Route path="/" element={<SignInForm />} />
         <Route path="/sign-up" element={<SignUpForm />} />
       </Routes>

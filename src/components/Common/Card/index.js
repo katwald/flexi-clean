@@ -13,7 +13,7 @@ const Card = ({
   assignedEmployee,
 }) => {
   return (
-    <div className="card">
+    <div onClick={onClick} className="card">
       <div className="card__header">
         <div>
           <h3 className="card__header__title">{title}</h3>
@@ -50,7 +50,7 @@ const Card = ({
         >
           {tag}
         </div>
-        <div onClick={onClick}>
+        <div>
           <HiArrowLongRight className="card__footer__avatar" />
         </div>
       </div>
