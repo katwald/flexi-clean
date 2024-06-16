@@ -18,12 +18,12 @@ const Card = ({
         <div>
           <h3 className="card__header__title">{title}</h3>
           <div className="card__header__sub-title">
-            <div className="card__header__sub-title__date">
+            <p className=" card__header__sub-title card__header__sub-title__date">
               {readableDate(bookingStart)}
-            </div>
-            <div className="card__header__sub-title__date">
+            </p>
+            <p className="card__header__sub-title card__header__sub-title__date">
               {readableDate(bookingEnd)}
-            </div>
+            </p>
           </div>
         </div>
         <div className="card__header__avatar">

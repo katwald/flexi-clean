@@ -1,6 +1,9 @@
 @import "../../../styles/_variables";
 
 .card {
+  &:hover {
+    cursor: pointer;
+  }
   width: 98vw;
   max-width: 800px;
   border: 1px solid rgb(194, 193, 193);
@@ -20,7 +23,7 @@
       align-self: center;
     }
     &__sub-title {
-      font-size: 0.8rem;
+      font-size: 0.7rem;
       color: $light-gray;
     }
     &__avatar {
@@ -29,7 +32,7 @@
     }
   }
   &__body {
-    padding: 12px 0;
+    padding: 1rem 0 2rem;
     height: 40%;
     // overflow: hidden;
     font-size: 1rem;
@@ -44,11 +47,12 @@
     justify-content: space-between;
     padding-right: 1rem;
     &__chip {
-      padding: 0.5rem;
-      width: max-content;
+      padding: 0.1rem 0.3rem;
+      height: 1.2rem;
       border: 1px solid black;
       border-radius: 0.3rem;
       text-align: center;
+      font-size: 0.6rem;
 
       &__early-morning {
         background: rgb(247, 211, 11);
@@ -61,6 +65,7 @@
         border: none;
       }
     }
+
     &__avatar {
       stroke-width: 0.2rem;
       font-size: 1.5rem;

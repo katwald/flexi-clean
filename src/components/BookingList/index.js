@@ -46,8 +46,8 @@ const Bookings = () => {
           key={booking.id}
           bookingStart={bookingStart}
           bookingEnd={bookingEnd}
-          bookingDescription={bookingDescription}
-          assignedEmployee={assignedCleaner}
+          bookingDescription={bookingDescription || "Missing Details"}
+          assignedEmployee={assignedCleaner || "?"}
           cleaningDate={cleaningDate}
           title={booking.venueName}
           tag={cleaningTag || "Normal"}
