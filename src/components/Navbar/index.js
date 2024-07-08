@@ -40,7 +40,7 @@ const Navigation = () => {
     }
   };
 
-  const supervisor = user && user.role === "Supervisor";
+  const supervisor = user && user.role === "supervisor";
 
   const renderUserStatus = () => {
     const activeLink = ({ isActive }) =>
@@ -78,15 +78,17 @@ const Navigation = () => {
       <>
         <div className="nav-bar__nav">
           {user ? (
-            <NavLink
-              onClick={closeMobileMenu}
-              to={"/bookings"}
-              className={({ isActive }) =>
-                isActive ? "nav-bar__nav__link__active" : "nav-bar__nav__link"
-              }
-            >
-              Bookings
-            </NavLink>
+            <>
+              <NavLink
+                onClick={closeMobileMenu}
+                to={"/bookings"}
+                className={({ isActive }) =>
+                  isActive ? "nav-bar__nav__link__active" : "nav-bar__nav__link"
+                }
+              >
+                Bookings
+              </NavLink>
+            </>
           ) : (
             <NavLink
               onClick={closeMobileMenu}
@@ -109,10 +111,20 @@ const Navigation = () => {
           >
             MySchedule
           </NavLink>
+          <NavLink
+            onClick={closeMobileMenu}
+            to={"/time-sheet"}
+            className={({ isActive }) =>
+              isActive ? "nav-bar__nav__link__active" : "nav-bar__nav__link"
+            }
+          >
+            Timesheet
+          </NavLink>
         </div>
       </>
     );
   };
+
   return (
     <div className="nav-bar">
       {isMobile && (
@@ -127,6 +139,7 @@ const Navigation = () => {
       <nav
         className={`nav-bar__container ${isMenuOpen && " nav-bar__show-menu"}`}
       >
+        {" "}
         {renderNavLinks()}
         {renderUserStatus()}
       </nav>

@@ -60,7 +60,7 @@ const Bookings = () => {
       <div className="booking-list__header">
         <h1 className="employee-list__title">Booking List </h1>
         <div>
-          {user && user.role === "Supervisor" && (
+          {user && user.role === "supervisor" && (
             <Button
               primary
               large

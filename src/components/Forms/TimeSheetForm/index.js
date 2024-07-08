@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
-// import { createBooking } from "../../../reducers/bookingsReducers";
+import { createTimeSheet } from "../../../reducers/timesheetReducer";
 import {
   setNotification,
   setNotificationType,
 } from "../../../reducers/notificationReducer";
 import { dateTimeLocalFormat } from "../../../helpers/dateTimeLocalFormatter";
 import Button from "../../Button";
-import Input from "../../Input";
+import Input from "../../Common/Input";
 import TextArea from "../../TextArea";
 
 // import "./index.scss";
@@ -25,28 +25,35 @@ const TimeSheetForm = ({ setModalVisible, modalVisible }) => {
 
   const handleAddWorkHour = (e) => {
     e.preventDefault();
+    // const workHourObj = {
+    //   venueName: venue,
+    //   cleaningDate: cleaningDate,
+    //   startTime: startTime,
+    //   endTime: endTime,
+    //   Description: description,
+    // };
     const workHourObj = {
-      venueName: venue,
-      startTime: startTime,
-      bookingEnd: endTime,
-      bookingDescription: description,
-      cleaningDate: cleaningDate,
+      venueName: venue || "RobaLounge",
+      startTime: startTime || "14:54",
+      endTime: endTime || "15:54",
+      date: cleaningDate || "2024-06-30",
+      description: description || "description",
     };
 
     try {
-      if (!startTime || !endTime || !cleaningDate) {
+      if (!workHourObj) {
         dispatch(setNotification("Fields cannot be empty !!"));
         dispatch(setNotificationType("error"));
       } else {
         console.log("work hour Obj", workHourObj);
-        // dispatch(createBooking(workHourObj));
-        // dispatch(setNotification("hours has been successfully added."));
-        // dispatch(setNotificationType("success"));
-        // setVenue("");
-        // setStartTime("");
-        // setEndTime("");
-        // setDescription("");
-        // setCleaningDate("");
+        dispatch(createTimeSheet(workHourObj));
+        dispatch(setNotification("hours has been successfully added."));
+        dispatch(setNotificationType("success"));
+        setVenue("");
+        setStartTime("");
+        setEndTime("");
+        setDescription("");
+        setCleaningDate("");
         setModalVisible(!modalVisible);
       }
     } catch (error) {

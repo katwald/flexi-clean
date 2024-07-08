@@ -11,7 +11,7 @@ import {
 import useField from "../../../hooks/useField";
 
 import Button from "../../Button";
-import Input from "../../Input";
+import Input from "../../Common/Input";
 
 import "./index.scss";
 

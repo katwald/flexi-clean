@@ -32,26 +32,21 @@ const Bookings = () => {
   }
   const renderBooking = (booking) => {
     if (booking) {
-      const {
-        bookingStart,
-        bookingEnd,
-        bookingDescription,
-        cleaningDate,
-        cleaningTag,
-      } = booking.bookingStatus;
+      const { bookingStart, bookingEnd, bookingDescription, cleaningTag } =
+        booking.bookingStatus;
       const { assignedCleaner } = booking.cleaningStatus || null;
 
       return (
         <Card
           key={booking.id}
-          bookingStart={bookingStart}
-          bookingEnd={bookingEnd}
-          bookingDescription={bookingDescription || "Missing Details"}
-          assignedEmployee={assignedCleaner || "?"}
-          cleaningDate={cleaningDate}
+          startTime={bookingStart}
+          endTime={bookingEnd}
+          description={bookingDescription || "Missing Details"}
+          userName={assignedCleaner || "?"}
           title={booking.venueName}
           tag={cleaningTag || "Normal"}
           onClick={() => handleRowClick(booking.id)}
+          hasAvatar
         />
       );
     }
@@ -61,7 +56,7 @@ const Bookings = () => {
       <div className="booking-list__header">
         <h1 className="booking-list__title">Booking List </h1>
         <div>
-          {user && user.role === "Supervisor" && (
+          {user && user.role === "supervisor" && (
             <Button
               primary
               large

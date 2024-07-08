@@ -9,7 +9,7 @@ import {
 // import { dateTimeLocalFormat } from "../../../helpers/dateTimeLocalFormatter";
 
 import Button from "../../Button";
-import Input from "../../Input";
+import Input from "../../Common/Input";
 import TextArea from "../../TextArea";
 
 const BookingForm = ({

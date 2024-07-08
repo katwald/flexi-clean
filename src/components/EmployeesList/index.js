@@ -84,7 +84,7 @@ const EmployeesList = () => {
     );
   };
   const { message, messageType } = notification;
-  if (!user || (user && user.role !== "Supervisor")) {
+  if (!user || (user && user.role !== "supervisor")) {
     return Navigate("/");
   }
   return (

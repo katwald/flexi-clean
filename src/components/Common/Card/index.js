@@ -7,11 +7,32 @@ const Card = ({
   title,
   tag,
   onClick,
-  bookingStart,
-  bookingEnd,
-  bookingDescription,
-  assignedEmployee,
+  startTime,
+  endTime,
+  description,
+  userName,
+  hasAvatar = false,
+  duration = "3.5",
 }) => {
+  const renderAvatar = () => {
+    return (
+      <div className="card__header__avatar">
+        {userName && (
+          <>
+            <div className="card__header__avatar__icon">
+              <HiOutlineUserCircle />
+            </div>
+            <div className="card__header__avatar__name">{userName}</div>
+          </>
+        )}
+      </div>
+    );
+  };
+
+  const renderDuration = () => {
+    return <div className="card__header__duration">{duration}</div>;
+  };
+
   return (
     <div onClick={onClick} className="card">
       <div className="card__header">
@@ -19,28 +40,17 @@ const Card = ({
           <h3 className="card__header__title">{title}</h3>
           <div className="card__header__sub-title">
             <p className=" card__header__sub-title card__header__sub-title__date">
-              {readableDate(bookingStart)}
+              {hasAvatar ? readableDate(startTime) : startTime}
             </p>
             <p className="card__header__sub-title card__header__sub-title__date">
-              {readableDate(bookingEnd)}
+              {hasAvatar ? readableDate(endTime) : endTime}
             </p>
           </div>
         </div>
-        <div className="card__header__avatar">
-          {assignedEmployee && (
-            <>
-              <div className="card__header__avatar__icon">
-                <HiOutlineUserCircle />
-              </div>
-              <div className="card__header__avatar__name">
-                {assignedEmployee}
-              </div>
-            </>
-          )}
-        </div>
+        {hasAvatar ? renderAvatar() : renderDuration()}
       </div>
       <div className="card__body">
-        <div className="card__body__truncate">{bookingDescription}</div>
+        <div className="card__body__truncate">{description}</div>
       </div>
       <div className="card__footer">
         <div

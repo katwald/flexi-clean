@@ -49,7 +49,7 @@ As a Cleaner you can:
 - cancel the shift.
 - comment cleaning related issue. eg. writ about lost and found items, broken items etc.
 
-As a SuperVisor you can
+As a supervisor you can
 
 - signIn to the app.
 - add information of upcoming booking date, cleaning date and its description.

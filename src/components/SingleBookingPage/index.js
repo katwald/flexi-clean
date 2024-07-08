@@ -29,7 +29,7 @@ const SingleBooking = ({ singleBooking }) => {
   const [booking, setBooking] = useState(null);
   const [workerModal, setWorkerModal] = useState(false);
 
-  const supervisor = user && user.role === "Supervisor";
+  const supervisor = user && user.role === "supervisor";
 
   const handleEditBooking = () => {
     setEditBookingModalVisible(!editBookingModalVisible);
