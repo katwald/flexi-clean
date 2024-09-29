@@ -7,16 +7,16 @@ import { initializeBookings } from "./reducers/bookingsReducers";
 import { initializeEmployees } from "./reducers/employeesReducer";
 import { getUser } from "./reducers/authReducer";
 
-import Navigation from "./components/Navbar";
-import MySchedule from "./components/MySchedule";
-import EmployeesList from "./components/EmployeesList";
-import Bookings from "./components/BookingListPage";
-import BookingForm from "./components/Forms/BookingForm/NewbookingForm";
-import SingleBookingPage from "./components/SingleBookingPage";
-import TimeSheetPage from "./components/TimeSheetPage";
-import SignInForm from "./components/Forms/SignInForm";
-import SignUpForm from "./components/Forms/SignUpForm";
-import Notification from "./components/Notification";
+import Navigation from "./Components/Navbar";
+import Bookings from "./Components/Pages/BookingListPage";
+import SingleBookingPage from "./Components/Pages/SingleBookingPage";
+import TimeSheetPage from "./Components/Pages/TimeSheetPage";
+import MySchedule from "./Components/MySchedule";
+import EmployeesList from "./Components/EmployeesList";
+import BookingForm from "./Components/Forms/BookingForm/NewbookingForm";
+import SignInForm from "./Components/Forms/SignInForm";
+import SignUpForm from "./Components/Forms/SignUpForm";
+import Notification from "./Components/Common/Notification";
 
 const App = () => {
   const dispatch = useDispatch();
