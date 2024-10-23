@@ -2,7 +2,7 @@
 
 .nav-bar {
   background-color: $primary;
-  padding: 15px 48px;
+  padding: 15px 0;
   width: 100%;
   z-index: 100;
   &__container {
@@ -45,8 +45,13 @@
     cursor: pointer;
     font-size: 2.5rem;
     & > svg {
-      font-size: 2.5rem;
+      font-size: 4rem;
     }
+  }
+  &__toggle {
+    margin: 0 10vw;
+    border-bottom: 1px solid $secondary;
+    width: 100vw;
   }
   &__close {
     position: absolute;
@@ -63,8 +68,12 @@
     &__container {
       flex-direction: column;
       position: fixed;
+      align-items: flex-start;
+      row-gap: 0.5rem;
       top: 0;
+      width: 90vw;
       right: -100%;
+      column-gap: 8px;
       background-color: $primary;
       width: 80%;
       height: 100%;
